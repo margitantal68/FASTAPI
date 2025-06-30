@@ -9,18 +9,29 @@ This folder contains the practical work for **Module 1** of the FastAPI tutorial
 - Supporting files for hands-on practice
 
 ## Getting Started
+1. **Create a virtual environment (optional but recommended):**
+    ```bash
+    python -m venv .venv
+    ```
+    
+    **Activate the virtual environment:**
+    - On macOS/Linux:
+    ```bash
+
+    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    ```
 
 1. **Install dependencies:**
     ```bash
     pip install fastapi uvicorn
     ```
 
-2. **Run the FastAPI app:**
+1. **Run the FastAPI app:**
     ```bash
     uvicorn main:app --reload
     ```
 
-3. Open your browser at [http://127.0.0.1:8000](http://127.0.0.1:8000) to access the API.
+1. Open your browser at [http://127.0.0.1:8000](http://127.0.0.1:8000) to access the API.
 
 ## Learning Objectives
 

@@ -16,6 +16,17 @@ Welcome to the second module of the FastAPI tutorial! This module provides an in
 - Python 3.7 or higher installed
 
 ## Getting Started
+1. **Create a virtual environment:**
+    ```bash
+    python -m venv .venv
+    ```
+    
+    **Activate the virtual environment:**
+    - On macOS/Linux:
+    ```bash
+
+    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    ```
 
 1. **Install FastAPI and Uvicorn:**
     ```bash
@@ -42,6 +53,7 @@ Welcome to the second module of the FastAPI tutorial! This module provides an in
 4. **Test your API:**
     - Open your browser and go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
     - Explore the interactive docs at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+    
 
 5. **Models and endpoints:**
     
