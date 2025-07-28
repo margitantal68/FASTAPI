@@ -2,6 +2,7 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+paginate: true
 ---
 
 <!-- <style>
@@ -13,7 +14,7 @@ theme: gaia
 
 
 # Week 3: Intermediate FastAPI 
-
+## Overview
 - Request and response models 
 - Response status codes 
 - Error handling 
@@ -83,14 +84,14 @@ theme: gaia
 ## Modular Architecture
 
 - Organize code into modules:
-  - `routes/` for route definitions
+  - `routers/` for route definitions
   - `models/` for Pydantic models
   - `services/` for business logic
 - Example structure:
 ```
     project/ 
         ├── main.py 
-        ├── routes/ 
+        ├── routers/ 
             ├── users.py 
             └── items.py
 ```
@@ -99,7 +100,7 @@ theme: gaia
 ## Modular Architecture: main.py
 ```python
 from fastapi import FastAPI 
-from routes import users, items 
+from routers import users, items 
 
 app = FastAPI() 
 
@@ -112,7 +113,7 @@ def read_root():
 ```
 ---
 
-## Modular Architecture: routes/users.py
+## Modular Architecture: routers/users.py
 ```python
 from fastapi import APIRouter 
 
@@ -125,7 +126,7 @@ def get_users():
 
 ---
 
-## Modular Architecture: routes/items.py    
+## Modular Architecture: routers/items.py    
 ```python
 from fastapi import APIRouter
 
@@ -134,7 +135,6 @@ router = APIRouter()
 @router.get("/")
 def get_items():
     return {"items": ["Item1", "Item2", "Item3"]}
-
 ```
 ---
 

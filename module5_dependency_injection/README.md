@@ -1,4 +1,4 @@
-# Module 3: Database integration
+# Module 5: Dependency Injection and Modularization
 
 ## Getting Started
 1. **Create a virtual environment:**

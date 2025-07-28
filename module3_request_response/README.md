@@ -1,3 +1,5 @@
+# Module 3: Request handling and response models
+
 ## Getting Started
 1. **Create a virtual environment:**
     ```bash
@@ -79,4 +81,25 @@ def get_item(id: int):
         if item.id == id:
             return item
     raise HTTPException(status_code=404, detail="Item not found")
+```
+
+6. ## Create the main FastAPI app:
+
+```python
+from fastapi import FastAPI
+from routers import users, items
+
+app = FastAPI()
+
+app.include_router(users.router, prefix="/users", tags=["Users"])
+app.include_router(items.router, prefix="/items", tags=["Items"])
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the FastAPI backend!"}
+```
+
+7. ## Run the FastAPI app:
+```bash
+uvicorn main:app --reload
 ```

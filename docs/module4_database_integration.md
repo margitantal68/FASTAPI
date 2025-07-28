@@ -2,6 +2,7 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+paginate: true
 ---
 
 <!-- <style>
@@ -13,12 +14,11 @@ theme: gaia
 
 
 # Week 4: Database Integration with FastAPI
-
+## Overview
 - Intro to databases and SQLAlchemy ORM
 - Creating models and schemas
 - Performing CRUD operations
 - Alembic for database migrations
-- Dependency injection and DB sessions
 
 ---
 ## Intro to SQLAlchemy ORM
@@ -242,25 +242,7 @@ pip install alembic
 alembic init alembic
 ```
 ---
-## Dependency Injection with FastAPI
-- Use `Depends` to inject dependencies like DB sessions
-```python
-from fastapi import Depends
 
-def get_db():
-    db = SessionLocal()
-    try: 
-        yield db
-    finally: db.close()
-```
----
-## Project Folder Updates
-- Suggested updates:
-    - db/session.py → handles DB connection
-    - db/models.py → SQLAlchemy models
-    - db/base.py → import all models
-    - alembic/ → migration scripts
----
 ## Live Coding Example
 - Connecting to Postgres
 - Creating a model and schema

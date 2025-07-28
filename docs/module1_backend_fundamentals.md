@@ -2,6 +2,7 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+paginate: true
 ---
 
 <!-- <style>

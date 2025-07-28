@@ -2,6 +2,7 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+paginate: true
 ---
 
 <!-- <style>
@@ -36,7 +37,7 @@ theme: gaia
 
 Common structure:
 - `main.py` – entry point  
-- `routes/` – modular routes  
+- `routers/` – modular routes  
 - `models/` – Pydantic or DB models  
 - `services/` – business logic  
 - `config.py` – env variables, settings  
