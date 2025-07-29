@@ -25,6 +25,7 @@ def get_current_user(token: str = Security(oauth2_scheme), db: Session = Depends
     try:
         payload = decode_access_token(token)
         username: str = payload.get("sub")
+        print(f"\n***** Decoded username: {username}\n")
         if username is None:
             raise credentials_exception
     except Exception:
@@ -58,7 +59,10 @@ def create_user(user_req: UserRequest, db: Session = Depends(get_db)):
         username=user_req.username,
         fullname=user_req.fullname,
         email=user_req.email,
-        hashed_password=hash_password(user_req.password)
+        hashed_password=hash_password(user_req.password),
+        auth_provider="local",
+        github_id=None,
+        avatar_url=None
     )
     print(new_user)
     db.add(new_user)

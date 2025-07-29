@@ -11,8 +11,12 @@ class User(Base):
     username = Column(String, unique=True, index=True)
     fullname = Column(String)
     email = Column(String, unique=True, index=True)
-    hashed_password = Column(String)
+    hashed_password = Column(String, nullable=True)
 
+    # New fields for GitHub authentication
+    github_id = Column(String, unique=True, index=True, nullable=True)
+    avatar_url = Column(String, nullable=True)
+    auth_provider = Column(String, default="local")  # e.g., 'local' or 'github'
 
 class UserResponse(BaseModel):
     username: str

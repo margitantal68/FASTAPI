@@ -10,8 +10,8 @@ paginate: true
 - Register and login flow using a local database
 - Password hashing - `passlib` library
 - JWT (JSON Web Tokens) - `jose` library
-- Securing routes with JWT
-- Testing with `curl`, `Swagger UI` and `Postman`
+- Securing routes with `JWT` tokens
+- `OAuth2` with GitHub
 
  
  
@@ -261,15 +261,76 @@ def decode_access_token(token: str):
 ---
 ## Create a React app to test the API
 - The React app will have a simple UI for 
-    - user registration
-    - user login
+    - user registration (using local database)
+    - user login 
     - displaying all users data
     - deleting a user by ID
 
 ---
+## Implement OAuth2 with GitHub
+
+- Register OAuth app on GitHub
+- Add GitHub OAuth endpoints to FastAPI
+- Exchange code for token, get user info
+- Match or create user in your DB
+- Generate your app’s JWT token
+- Redirect to frontend with token
+- Store token in frontend and use it like local login
+---
+## Register Your App with GitHub
+- Go to: https://github.com/settings/developers
+- Click "New OAuth App"
+- Set:
+    - Application name
+    - Homepage URL: http://your-frontend.com
+    - Authorization callback URL: http://your-backend.com/auth/github/callback
+
+- GitHub gives you: `CLIENT_ID` and `CLIENT_SECRET`
+---
+
+## OAuth2 Flow with GitHub
+
+- **Frontend** button click --> Redirects to **Backend** (`/auth/github/login`) 
+- **Backend** (`/auth/github/login`) --> Redirects to **GitHub OAuth2 Server**
+- **GitHub OAuth2 Server**: User authorizes --> Redirects to **Backend** with authorization code (`/auth/github/callback?code=...`)
+- **Backend** exchanges `code` for `access token` from **GitHub**
+- **Backend** retrieves user info from **GitHub** using `access token`
+- **Backend** issues `JWT token` containing user info
+- **Frontend** receives `JWT token` and stores it in local storage
+
+---
+## Code Example: Backend - auth.py
+- Endpoints
+```
+GET /auth/github/login
+Redirects to GitHub's OAuth consent page.
+```
+
+```
+GET /auth/github/callback
+GitHub sends users here after login with a code.
+```
+- Utility function
+```
+get_or_create_user() 
+create or match a GitHub-authenticated user in your DB.
+```
+---
+## Code Example: Frontend - App.jsx
+- Add a `Login with GitHub` Button 
+```javascript
+<a href="https://your-backend.com/auth/github/login">
+  <button>Login with GitHub</button>
+</a>
+```
+- Handle the Redirect (JWT Token)
+Create a page like `/oauth/callback` to extract the `JWT token` from the URL and store it
+---
+
 ## Remember
 - Database models vs Pydantic models
 - Password `hashing` and `JWT` concepts
 - Creating secure `register`/`login` flows
 - `Securing routes` with dependencies
+- `OAuth2` with GitHub
 
