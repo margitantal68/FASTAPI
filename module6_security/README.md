@@ -21,10 +21,18 @@ Welcome to the sixth module of the FastAPI tutorial! This module focuses on secu
 
 ## FastAPI App
 1. **.env file:**
-    Create a `.env` file in the root directory of your FastAPI app with the following content:
-    ```plaintext
-    DB_USER=postgres
-    DB_PASS=postgres
+    Copy the .env.example file in the project directory:
+    ```
+    cp .env.example .env
+    ```
+    Set the DB_USER and DB_PASS environment variables in the `.env` file to your PostgreSQL credentials.
+    Set the CLIENT_ID and CLIENT_SECRET for OAuth2 authentication.
+    ```
+    DB_USER=your_db_user
+    DB_PASS=your_db_password
+    CLIENT_ID=your_client_id
+    CLIENT_SECRET=your_client_secret
+    ```
 1. **Create a simple FastAPI app with the following structure:**
 
     ```
