@@ -26,6 +26,18 @@ This folder contains the practical work for **Module 1** of the FastAPI tutorial
     pip install fastapi uvicorn
     ```
 
+1. **Create a file named `main.py` and add the following code:**
+    ```python
+    from fastapi import FastAPI
+
+    app = FastAPI()
+
+    # Hello FastAPI Project
+    @app.get("/")
+    def read_root():
+        return {"message": "Hello, FastAPI!"}
+    ```
+
 1. **Run the FastAPI app:**
     ```bash
     uvicorn main:app --reload
