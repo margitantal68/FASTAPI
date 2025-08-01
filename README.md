@@ -4,7 +4,7 @@ This repository contains practice work for a FASTAPI tutorial. Each module is or
 ## Slides
 - [Module 1: Backend Fundamentals](docs/module1_backend_fundamentals.md)
 - [Module 2: FastAPI Introduction](docs/module2_getting_started_with_fastapi.md)
-- [Module 1: Intermediate FastAPI](docs/module3_intermediate_fastapi.md)
+- [Module 3: Intermediate FastAPI](docs/module3_intermediate_fastapi.md)
 - [Module 4: Database Integration](docs/module4_database_integration.md)
 <!-- - [Module 5: Dependency Injection](docs/module5_dependency_injection.md) -->
 
