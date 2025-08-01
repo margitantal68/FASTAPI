@@ -8,7 +8,7 @@ class:
 paginate: true
 ---
 
-# Week 3: Intermediate FastAPI 
+# Module 3: Intermediate FastAPI 
 ## Overview
 - Request and response models 
 - Response status codes 
@@ -22,8 +22,6 @@ paginate: true
 - Pydantic models are used for: 
   - Validating input data (requests) 
   - Structuring output data (responses) 
-
- 
 
 ---
 
