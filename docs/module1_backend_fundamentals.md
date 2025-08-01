@@ -2,6 +2,9 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+class:
+    - lead 
+    - invert
 paginate: true
 ---
 
@@ -11,11 +14,12 @@ paginate: true
         --color-foreground: #ffffff;
     }
 </style> -->
-# Week 1: Backend Development with FastAPI
+# Module 1: Backend Development with FastAPI
 
 ## Course Introduction
 
 **What you'll learn:**
+
 - Build high-performance APIs  
 - Use databases, authentication, and Docker  
 - Deploy real-world backend systems  
@@ -24,16 +28,16 @@ paginate: true
 
 ## What Is Backend Development?
 
-The backend powers:
-- Application logic  
-- Databases  
-- APIs  
+* The backend powers:
+        - Application logic  
+        - Databases  
+        - APIs  
 
-Handles:
-- Data processing  
-- Authentication  
-- Business rules  
-- Communication with the frontend  
+* Handles:
+        - Data processing  
+        - Authentication  
+        - Business rules  
+        - Communication with the frontend  
 
 ---
 
@@ -60,31 +64,24 @@ Handles:
 
 ## What is an API?
 
-**API = Application Programming Interface**  
-Allows systems to communicate  
+**API = Application Programming Interface** , allows systems to communicate  
 
-REST APIs use HTTP methods:
-- GET  
-- POST  
-- PUT  
-- DELETE  
+* REST APIs use HTTP methods: GET, POST, PUT, DELETE  
 
-Backend provides **endpoints** that clients can call  
+* Backend provides **endpoints** that clients can call  
 
 ---
 
 ## REST Overview
 
 **REST = Representational State Transfer**
-
-**Principles:**
-- Stateless  
-- Resource-based (URL represents data)  
-- Standard HTTP methods  
-
-**Example:**
-- `GET /users` → fetch users  
-- `POST /users` → create user  
+* Principles:
+    - Stateless  
+    - Resource-based (URL represents data)  
+    - Standard HTTP methods  
+* Examples:
+    - `GET /users` → fetch users  
+    - `POST /users` → create user  
 ---
 
 ## Introduction to FastAPI
@@ -136,12 +133,12 @@ source .venv/bin/activate
     - `git push origin main` - Push to remote repo
 
 ---
-## Project: Hello FastAPI
+## Project: Hello FastAPI - Development
 
 ```bash
 pip install fastapi uvicorn
 ```
-
+main.py
 ```python
 from fastapi import FastAPI 
 app = FastAPI()
@@ -150,9 +147,21 @@ app = FastAPI()
 def read_root():
     return {"message": "Hello, FastAPI!"}
 ```
+---
+## Project: Hello FastAPI - Running & Testing
 
+* Run the server:
 ```bash
 uvicorn main:app --reload
+```
+* Test in terminal:
+```bash
+curl http://localhost:8000/
+```
+
+* Test in browser:
+```
+http://localhost:8000/
 ```
 ---
 

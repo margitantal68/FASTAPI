@@ -2,6 +2,9 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+class:
+    - lead 
+    - invert
 paginate: true
 ---
 
@@ -12,13 +15,13 @@ paginate: true
     }
 </style> -->
 
-# Week 2: Getting Started with FastAPI
+# Module 2: Getting Started with FastAPI
 
 ## Overview
 - FastAPI project structure  
 - Creating GET API endpoints  
 - Path and query parameters  
-- Pydantic models and data validation  
+- Pydantic models 
 - Creating POST API endpoints  
 
 ---
@@ -71,7 +74,26 @@ uvicorn main:app --reload
 - `--reload` enables auto-reload on file changes
 
 ---
+## Pydantic model
 
+```python
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    price: float
+    in_stock: bool = True
+```
+
+```python
+items: list = list(
+    Item(
+        name="Sample Item " + str(i+1), 
+        price=(i+1) * 10.0, 
+        in_stock=True) 
+    for i in range(10))
+```
+---
 ## Path Parameters
 
 ### Define variables in the URL:

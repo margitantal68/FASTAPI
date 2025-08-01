@@ -2,9 +2,12 @@
 marp: true
 theme: gaia
 author: Margit ANTAL
+class:
+    - lead 
+    - invert
 paginate: true
 ---
-## Week 6: Security  
+## Module 6: Security  
 ### Overview
 - Authentication and authorization
 - Register and login flow using a local database
@@ -12,18 +15,10 @@ paginate: true
 - JWT (JSON Web Tokens) - `jose` library
 - Securing routes with `JWT` tokens
 - `OAuth2` with GitHub
-
- 
- 
 ---
 ## Authentication vs Authorization
-| Authentication | Authorization |
-|----------------|---------------|
-| Verifies user identity | Determines user permissions |
-
-<br>
-|   <img src="images/authentication_vs_authorization.png" alt="Authentication vs Authorization" width="400"/> |
-
+User identity vs User permissions <br>
+<img src="images/authentication_vs_authorization.png" alt="Authentication vs Authorization" width="350"/> 
 
 ---
 ## Database vs Pydantic models

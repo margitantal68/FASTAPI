@@ -2,16 +2,11 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+class:
+    - lead 
+    - invert
 paginate: true
 ---
-
-<!-- <style>
-    :root {
-        --color-background: #101010;
-        --color-foreground: #ffffff;
-    }
-</style> -->
-
 
 # Week 3: Intermediate FastAPI 
 ## Overview

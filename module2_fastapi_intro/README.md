@@ -1,13 +1,15 @@
 # Module 2: Introduction to FastAPI
 
-Welcome to the second module of the FastAPI tutorial! This module provides an introduction to FastAPI, a modern, fast (high-performance) web framework for building APIs with Python 3.7+.
+Welcome to the second module of the FastAPI tutorial! 
+This module provides an introduction to query and path parameters, as well as pydantic models and data validation.
 
 ## What You'll Learn
 
-- What is FastAPI?
-- Key features and benefits
-- Setting up your development environment
-- Creating your first FastAPI application
+- FastAPI project structure  
+- Creating GET API endpoints  
+- Path and query parameters  
+- Pydantic models 
+- Creating POST API endpoints  
 - Running and testing your API
 
 ## Prerequisites
@@ -69,7 +71,7 @@ Welcome to the second module of the FastAPI tutorial! This module provides an in
 
     ***Storage for items:***
     ```python
-    items = []
+    items: list = list(Item(name="Sample Item " + str(i+1), price=(i+1) * 10.0, in_stock=True) for i in range(10))
     ```
 
     
@@ -78,6 +80,31 @@ Welcome to the second module of the FastAPI tutorial! This module provides an in
     -GET  -- /items: returns a list of items
     -POST -- /items: creates a new item
     -GET  -- /items/{item_id}: returns a specific item by ID
+    ```
+
+    ```python
+    # GET request examples
+
+    ## Path parameter example
+    @app.get("/items/{item_id}")
+    def read_item(item_id: int):
+        if item_id < 0 or item_id >= len(items):
+            return {"error": "Item not found"}
+        return items[item_id]
+
+
+    ## Query parameters example
+    @app.get("/items/")
+    def read_item(skip:int = 0, limit:int = 10):
+        return items[skip: skip + limit]
+
+
+
+    # POST request example
+    @app.post("/items/")
+    def create_item(item: Item):
+        items.append(item)
+        return {"item_name": item.name, "price": item.price}
     ```
 
 ## Resources

@@ -3,6 +3,12 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI"}
+
+
 ## pydantic model for request body
 class Item(BaseModel):
     name: str
@@ -10,7 +16,13 @@ class Item(BaseModel):
     in_stock: bool = True
 
 
-items: list = list(Item(name="Sample Item " + str(i+1), price=(i+1) * 10.0, in_stock=True) for i in range(10))
+# items: list = list(Item(name="Sample Item " + str(i+1), price=(i+1) * 10.0, in_stock=True) for i in range(10))
+
+items: list = list(
+    Item(name="Sample Item " + str(i+1), 
+         price=(i+1) * 10.0, 
+         in_stock=True) 
+    for i in range(10))
 
 # GET request examples
 

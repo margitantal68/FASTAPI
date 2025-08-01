@@ -2,6 +2,9 @@
 marp: true
 author: Margit ANTAL
 theme: gaia
+class:
+    - lead 
+    - invert
 paginate: true
 ---
 
