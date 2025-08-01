@@ -1,0 +1,5 @@
+dotenv==0.9.9
+psycopg2==2.9.10
+python-dotenv==1.1.1
+SQLAlchemy==2.0.42
+typing_extensions==4.14.1

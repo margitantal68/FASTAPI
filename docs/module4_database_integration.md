@@ -16,7 +16,7 @@ paginate: true
 </style> -->
 
 
-# Week 4: Database Integration with FastAPI
+# Module 4: Database Integration with FastAPI
 ## Overview
 - Intro to databases and SQLAlchemy ORM
 - Creating models and schemas
