@@ -1,4 +1,4 @@
-# Module 7: Advance API Design
+# Module 7: Advanced API Design
 
 ## Getting Started
 1. **Create a virtual environment:**
