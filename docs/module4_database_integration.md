@@ -245,19 +245,11 @@ pip install alembic
 alembic init alembic
 ```
 ---
-
-## Live Coding Example
-- Connecting to Postgres
-- Creating a model and schema
-- Writing create/read routes
-- Applying migrations with Alembic
-
----
 ## Homework
-- Create models for User and Post
-- Implement full CRUD for both
-- Apply Alembic migrations
-- Push code to GitHub
+
+[Link to homework](../module4_databases/README.md)
+Section: ** Practical Exercises: One-to-Many Relationships with SQLAlchemy**
+
 ---
 ## Remember
 - SQLAlchemy ORM basics

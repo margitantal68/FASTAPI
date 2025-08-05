@@ -16,8 +16,6 @@ class Item(BaseModel):
     in_stock: bool = True
 
 
-# items: list = list(Item(name="Sample Item " + str(i+1), price=(i+1) * 10.0, in_stock=True) for i in range(10))
-
 items: list = list(
     Item(name="Sample Item " + str(i+1), 
          price=(i+1) * 10.0, 

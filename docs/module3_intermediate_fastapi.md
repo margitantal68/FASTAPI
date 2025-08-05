@@ -164,19 +164,13 @@ DB_USER = os.getenv("DB_USER", "postgres")
 DB_PASS = os.getenv("DB_PASS", "postgres")
 ```
 ---
-## Homework & Practice 
+## Homework 
 
-📝 Homework: 
-
-- Use `response_model` and status codes in endpoints 
-
-- Modularize your API using `APIRouter` 
-
-- Add `.env` configuration and use environment variables
-
-- Push your code to GitHub 
+[Link to homework](../module3_request_response/README.md)
+Section: **Practical Exercises: FastAPI Modular App**
 
 ---
+
 ## Remember
 - The structure of a FastAPI app 
 - Modular architecture and routes 

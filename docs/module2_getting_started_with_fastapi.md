@@ -185,20 +185,11 @@ FastAPI auto-generates API docs:
 
 - Redoc: http://127.0.0.1:8000/redoc
 ---
-## Live Coding: Build a Small API
-
-Live demo of:
-- Creating routes
-- Using path/query parameters
-- Validating request body with Pydantic
-- Viewing Swagger docs
----
 ## Homework
 
-- Build a FastAPI app with at least 3 endpoints
-- Use path and query parameters
-- Create one POST endpoint with a Pydantic model
-- Push your code to GitHub
+[Link to homework](../module2_fastapi_intro/README.md)
+Section: **Practical Exercises: Item Management API**
+
 ---
 ## Remember
 

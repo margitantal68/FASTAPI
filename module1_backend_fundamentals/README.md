@@ -2,14 +2,8 @@
 
 This folder contains the practical work for **Module 1** of the FastAPI tutorial series. The exercises and examples here introduce the basics of building backend applications using FastAPI and Python.
 
-## Contents
-
-- Python module(s) implementing FastAPI basics
-- Example code and exercises
-- Supporting files for hands-on practice
-
 ## Getting Started
-1. **Create a virtual environment (optional but recommended):**
+1. **Create a virtual environment:**
     ```bash
     python -m venv .venv
     ```
@@ -17,9 +11,10 @@ This folder contains the practical work for **Module 1** of the FastAPI tutorial
     **Activate the virtual environment:**
     - On macOS/Linux:
     ```bash
-
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    source .venv/bin/activate 
     ```
+    On Windows use `.venv\Scripts\activate`
+    
 
 1. **Install dependencies:**
     ```bash

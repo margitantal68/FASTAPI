@@ -68,8 +68,59 @@
    ```bash
    pip install psycopg2
 
-## Create Database Models
+## Practical Exercises: One-to-Many Relationships with SQLAlchemy
 
+### ✅ Problem 1: Define One-to-Many Models
+- Objective: Model a one-to-many relationship between `Article` and `Comment`.
+- Instructions:
+  - In `models/article_comment_onetomany.py`, define two SQLAlchemy models:
+    - `Article`:
+        - Fields: `id` (primary key), `title` (required)
+    - Relationship: One Article has many Comments
+    - `Comment`:
+      - Fields: `id` (primary key), `content` (required), `article_id` (foreign key)
+    - Constraints:
+        - Use SQLAlchemy's relationship() and ForeignKey() to link the models.
+
+  - Use `declarative_base()` to define the ORM base class.
+
+### ✅ Problem 2: Setup and Configure the Database
+- Objective: Create the PostgreSQL connection and initialize the database schema.
+- Instructions:
+    - In `main.py`, do the following:
+      - Load environment variables using `dotenv`.
+      - Read `DB_USER` and `DB_PASS` from .env, with fallback defaults.
+      - Create a connection string:
+        ```
+        postgresql://<DB_USER>:<DB_PASS>@localhost/fastapi_week4
+        ```
+      - Use `create_engine()` to initialize a SQLAlchemy engine.
+      - Use `Base.metadata.create_all()` to create tables.
+
+### ✅ Problem 3: Add a Sample Article and Related Comments
+- Objective: Populate the database with sample data.
+- Instructions:
+    - Create a session using sessionmaker.
+    - Create one Article titled "Sample Article".
+    - Create two Comment objects with different content.
+    - Associate the comments with the article using:
+      ```python
+      article.comments = [comment1, comment2]
+      ```
+    - Add and commit the article (with comments) to the session.
+
+### ✅ Problem 4: Query Article and Its Comments
+- Objective: Retrieve an article and print its related comments.
+- Instructions:
+  - Use a new session to query the first article from the database.
+  - Print: 
+      - Article ID
+      - Number of comments
+      - Each comment's ID
+
+## Hints
+
+### Create models
 1. `models/article_comment_onetomany.py`
 
     ```python
@@ -94,7 +145,7 @@
         article_id = Column(Integer, ForeignKey('articles.id'))
     ```
 
-## Create Database Connection and Initialize Tables
+### Create Database Connection and Initialize Tables
 
 1. `main.py`
 

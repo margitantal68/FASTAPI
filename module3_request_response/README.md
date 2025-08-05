@@ -9,8 +9,9 @@
     **Activate the virtual environment:**
     - On macOS/Linux:
     ```bash
-
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    source .venv/bin/activate 
+    ```
+    - On Windows use `.venv\Scripts\activate`
     ```
 
 1. **Install FastAPI and Uvicorn:**
@@ -33,7 +34,77 @@
         └── users.py
     ```
 
-4. **Create models for items:**
+## 🧪 Practical Exercises: FastAPI Modular App
+
+### ✅ Problem 1: Define the Item Model with Multiple Representations
+- Objective: Create Pydantic models to represent both full and partial views of an Item.
+- Instructions:
+    - In `models/item.py`, define:
+        - `Item`: with fields `id`, `name`, `description` (optional), and `price`.
+
+        - `Item_Response`: returns only `id` and `name`.
+
+    - Use type hints and default values where needed.
+
+### ✅ Problem 2: Implement Item Retrieval Endpoints
+- Objective: Create two endpoints to retrieve item(s).
+- Instructions:
+    - In `routes/items.py`:
+        - Implement GET `/items/`: Return a list of all available items.
+        - Implement GET `/items/{id}`: Return an item by its ID using a path parameter.
+            - If not found, return 404 using HTTPException.
+        - Use `response_model=Item_Response` to hide sensitive data.
+
+### ✅ Problem 3: Define the User model with validation
+- Objective: Define a robust Pydantic model for users.
+- Instructions:
+    - In `models/user.py`:
+        - Create `User` with:
+            - Validated `username` (3–50 chars)
+            - Validated `email` (regex pattern)
+            - Optional `full_name` (max 100 chars)
+            - Default `is_active=True`
+
+        - Define `User_Response` to include only `id` and `full_name`.
+
+### ✅ Problem 4: Implement CRUD operations for users
+- Objective: Create RESTful routes for user management.
+- Instructions:
+    - In `routers/users.py`:
+        - GET `/users/`: Return all users.
+        - POST `/users/`: Create a user.
+            - Return 400 if the id already exists.
+            - Respond with a `User_Response`.
+
+        - GET `/users/{id}`: Return a full user by ID or raise 404.
+
+        - DELETE `/users/{id}`: Remove user by ID or raise 404.
+
+### ✅ Problem 5: Compose Your FastAPI Application
+- Objective: Build a modular FastAPI app with multiple routers.
+- Instructions:
+    - In `main.py`:
+        - Create a FastAPI instance.
+        - Include:
+            - `users.router` under `/users` with tag "Users"
+            - `items.router` under `/items` with tag "Items"
+        - Add a root route `/` that returns a welcome message.
+
+### ✅ Problem 6: Run and Test Your Application
+
+```bash
+uvicorn main:app --reload
+```
+- Test the following routes:
+```
+GET /
+GET /items/, GET /items/{id}
+GET /users/, POST /users/, GET /users/{id}, DELETE /users/{id}
+```
+
+
+## Hints
+1. **Create models for items:**
 
     ```python
     # models/item.py
@@ -52,7 +123,7 @@
         id: int
         name: str
     ```
-5. **Create routes for items:**
+1. **Create routes for items:**
 
     `routes/items.py`
 
@@ -81,7 +152,7 @@
         raise HTTPException(status_code=404, detail="Item not found")
     ```
 
-6. **Create models for users:**
+1. **Create models for users:**
 
     `models/user.py`
 
@@ -101,7 +172,7 @@
 
     ```
 
-7. **Create routes for users:**
+1. **Create routes for users:**
 
     `routers/users.py`
 
@@ -151,7 +222,7 @@
         raise HTTPException(status_code=404, detail="User not found")
     ```
 
-8. **Create the main FastAPI app:**
+1. **Create the main FastAPI app:**
 
     `main.py`
 
@@ -169,7 +240,7 @@
         return {"message": "Welcome to the FastAPI backend!"}
     ```
 
-9. **Run the FastAPI app:**
+1. **Run the FastAPI app:**
     ```bash
     uvicorn main:app --reload
     ```
