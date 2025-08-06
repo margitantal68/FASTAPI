@@ -56,9 +56,9 @@ This module provides an introduction to query and path parameters, as well as py
     - Open your browser and go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
     - Explore the interactive docs at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
     
-## 🧪 Practical Exercises: Item Management API
+##  Practical Exercises: Item Management API
 
-### 📝 Problem 1: Define the Item model
+### ✅ Problem 1: Define the Item model
 - Objective: Create a data model for storing item information using Pydantic.
 
 - Instructions:
@@ -70,7 +70,7 @@ This module provides an introduction to query and path parameters, as well as py
     ```
     - Ensure that incoming JSON payloads will be validated against this model.
 
-### 🧰 Problem 2: Simulate In-Memory storage
+### ✅ Problem 2: Simulate In-Memory storage
 - Objective: Initialize an in-memory list of items for testing.
 - Instructions:
     - Create 10 sample items using the Item model. Each item should have:
@@ -79,14 +79,14 @@ This module provides an introduction to query and path parameters, as well as py
         - `in_stock` should be True by default.
     - Store these in a list called items.
 
-### 📥 Problem 3: Create an endpoint to add new items
+### ✅ Problem 3: Create an endpoint to add new items
 - Objective: Implement a POST `/items/` endpoint.
 - Instructions:
     - Accept an Item from the request body.
     - Append the item to the items list.
     - Return a JSON response confirming the item's name and price.
 
-### 📤 Problem 4: Get a list of items with pagination
+### ✅ Problem 4: Get a list of items with pagination
 - Objective: Implement a GET /items/ endpoint that supports pagination.
 - Instructions:
     - Accept query parameters: `skip` (default: 0), `limit` (default: 10)
@@ -94,7 +94,7 @@ This module provides an introduction to query and path parameters, as well as py
 - Bonus:
     - Add optional filters (e.g., `in_stock=true`)
 
-### 🔎 Problem 5: Get Item by ID (Path Parameter)
+### ✅ Problem 5: Get Item by ID (Path Parameter)
 - Objective: Create a GET `/items/{item_id}` endpoint.
 - Instructions:
     - Use a path parameter `item_id` to look up an item by its index.

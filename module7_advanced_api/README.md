@@ -25,9 +25,9 @@
    ```
 
 
-## 🧪 Practical Exercises: Advanced API Design in FastAPI
+## Practical Exercises: Advanced API Design in FastAPI
 
-### ⚙️ Exercise 1: Implement API Versioning
+### ✅ Exercise 1: Implement API Versioning
 - Objective: Create two versions of a simple product API.
 
 - Instructions:
@@ -37,7 +37,7 @@
 
 
 
-### 📊 Exercise 2: Add Pagination, Filtering, and Sorting
+### ✅ Exercise 2: Add Pagination, Filtering, and Sorting
 - Objective: Enhance the /products/ endpoint.
 - Instructions:
   - Create an endpoint /products/ that supports:
@@ -50,7 +50,7 @@
 - Bonus:
   - Add support for descending sort via order_dir=desc.
 
-### 🚦 Exercise 3: Apply Rate Limiting
+### ✅ Exercise 3: Apply Rate Limiting
 - Objective: Limit request frequency to sensitive routes.
 - Instructions:
   - Install and configure `slowapi`.
@@ -60,7 +60,7 @@
 - Bonus:
     - Apply different limits to authenticated vs unauthenticated users.
 
-### 🧵 Exercise 4: Schedule Background Tasks
+### ✅ Exercise 4: Schedule Background Tasks
 - Objective: Offload non-blocking tasks using BackgroundTasks.
 - Instructions:
     - Create a POST route /send-email/ that accepts an email address.
@@ -70,7 +70,7 @@
 - Bonus:
   - Add another background task to notify an admin after email is sent.
 
-### ⚡ Exercise 5: Add Caching to Expensive Operations
+### ✅ Exercise 5: Add Caching to Expensive Operations
 - Objective: Cache expensive or frequently called endpoints.
 - Instructions:
   - Create an endpoint `/stats/` that simulates a slow operation (e.g., sleep for 3s).

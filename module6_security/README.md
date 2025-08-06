@@ -78,72 +78,72 @@ pip install -r requirements.txt
 
 ### Part 1: DB-based Authentication
 
-#### 🧪 Exercise 1: Setup the User Model & Table
+#### ✅ Exercise 1: Setup the User Model & Table
 - Goal: Define and migrate the users table.
 - Tasks:
     - Use SQLAlchemy to define a User model. Add fields: `username`, `fullname`, `email`, `hashed_password`.
     - Run `Base.metadata.create_all()` to create the table.
 
-    ✅ Test by querying the database directly.
+    - Test by querying the database directly.
 
-#### 🧪 Exercise 2: Register a User
+#### ✅ Exercise 2: Register a User
 - Goal: Implement a `POST /users/register` endpoint.
 - Tasks:
     - Validate uniqueness of username and email.
     - Hash the password using bcrypt.
     - Return only public data (e.g., username, email).
 
-    ✅ Test using Postman or Swagger.
+    - Test using Postman or Swagger.
 
-#### 🧪 Exercise 3: Login and Verify Password
+#### ✅ Exercise 3: Login and Verify Password
 - Goal: Implement a `POST /users/login` endpoint.
 - Tasks:
     - Verify if the provided password matches the hashed password.
     - Return a success message or a 401 error on failure.
 
-    ✅ Use plain DB authentication, no JWT yet.
+    - Use plain DB authentication, no JWT yet.
 
 ### Part 2: JWT Token-Based Authorization
 
-#### 🧪 Exercise 4: Issue JWT Token on Login
+#### ✅ Exercise 4: Issue JWT Token on Login
 - Goal: Securely issue JWT tokens on login.
 - Tasks:
     - Modify login to return a JWT using sub: username.
     - Set a short expiry time for access tokens.
     - Return the token in a structured response.
 
-    ✅ Store the token on the client side (localStorage or in tests).
+    - Store the token on the client side (localStorage or in tests).
 
-### 🧪 Exercise 5: Protect Routes Using JWT
+### ✅ Exercise 5: Protect Routes Using JWT
 - Goal: Secure the `/users/` endpoint.
 - Tasks:
     - Create a `get_current_user()` dependency.
     - Decode the token and retrieve the current user.
     - Use `Depends(get_current_user)` to protect the route.
 
-    ✅ Test with and without token headers.
+    - Test with and without token headers.
 
-### 🧪 Exercise 6: Delete a User
+### ✅ Exercise 6: Delete a User
 - Goal: Add a secure delete endpoint.
 - Tasks:
     - Use `DELETE /users/{id}`.
     - Only allow access if a valid token is provided.
     - Handle “user not found” with a 404.
 
-    ✅ Return a success or error message.
+    - Return a success or error message.
 
 
 ### Part 3: GitHub OAuth2 Authentication
 
-#### 🧪 Exercise 7: Implement GitHub Login Flow
+#### ✅ Exercise 7: Implement GitHub Login Flow
 - Goal: Add `/auth/github/login` and redirect to **GitHub**.
 - Tasks:
     - Redirect users to GitHub OAuth consent screen.
     - Use environment variables for `GITHUB_CLIENT_ID` and `SECRET`.
 
-    ✅ Use your GitHub OAuth App credentials.
+    - Use your GitHub OAuth App credentials.
 
-#### 🧪 Exercise 8: GitHub Callback & User Creation
+#### ✅ Exercise 8: GitHub Callback & User Creation
 - Goal: Handle GitHub OAuth callback.
 - Tasks:
     - Exchange code for access_token.
@@ -151,15 +151,16 @@ pip install -r requirements.txt
     - Create new user or link to an existing one.
     - Add GitHub fields to the User model: `github_id`, `avatar_url`, `auth_provider`.
 
-    ✅ Log the user in automatically with a JWT.
+    - Log the user in automatically with a JWT.
 
-#### 🧪 Exercise 9: Redirect with Token
+#### ✅ Exercise 9: Redirect with Token
 - Goal: Issue JWT and redirect to frontend.
 - Tasks:
     - On successful OAuth, create a JWT.
     - Redirect to frontend with ?token=... in the URL.
     - Allow frontend to decode and store the token.
-    ✅ Verify the decoded token in the frontend.
+    
+    - Verify the decoded token in the frontend.
 
 
 
