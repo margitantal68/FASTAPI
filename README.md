@@ -6,7 +6,9 @@ This repository contains practice work for a FASTAPI tutorial. Each module is or
 - [Module 2: FastAPI Introduction](docs/module2_getting_started_with_fastapi.md)
 - [Module 3: Intermediate FastAPI](docs/module3_intermediate_fastapi.md)
 - [Module 4: Database Integration](docs/module4_database_integration.md)
-<!-- - [Module 5: Dependency Injection](docs/module5_dependency_injection.md) -->
+- [Module 5: Dependency Injection](docs/module5_dependency_injection.md)
+- [Module 6: Security](docs/module6_security.md)
+- [Module 7: Advanced API Design](docs/module7_advanced_api_design.md)
 
 
 ## Structure

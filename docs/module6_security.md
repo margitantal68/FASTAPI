@@ -321,6 +321,12 @@ create or match a GitHub-authenticated user in your DB.
 - Handle the Redirect (JWT Token)
 Create a page like `/oauth/callback` to extract the `JWT token` from the URL and store it
 ---
+## Homework
+
+[Link to homework](../module6_security/README.md)
+Section: **Practical exercises**
+
+---
 
 ## Remember
 - Database models vs Pydantic models
