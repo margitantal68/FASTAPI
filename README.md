@@ -27,7 +27,7 @@ This repository contains training material for a FASTAPI tutorial. Each module i
 - [Module 4: Database Integration](./module4_databases/README.md)
 - [Module 5: Dependency Injection](./module5_dependency_injection/README.md)
 - [Module 6: Security](./module6_security/README.md)
-- [Module 7: Advanced API Design](./module7_advanced_api/__pycache__/README.md)
+- [Module 7: Advanced API Design](./module7_advanced_api/README.md)
 ## How to Use
 
 1. Navigate to the desired module's folder.

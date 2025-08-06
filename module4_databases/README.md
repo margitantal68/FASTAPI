@@ -9,8 +9,9 @@
     **Activate the virtual environment:**
     - On macOS/Linux:
     ```bash
-    source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
+    source .venv/bin/activate  
     ```
+    - On Windows use `.venv\Scripts\activate`
 
 ## PostgreSQL 
 
