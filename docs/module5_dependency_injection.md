@@ -8,8 +8,7 @@ author: Margit ANTAL
 paginate: true
 ---
 
-# Week 5  
-## Dependency Injection and Modularization in FastAPI
+# Module 5: Dependency Injection and Modularization in FastAPI
 
 ## Overview
 - FastAPI’s Dependency Injection System
@@ -130,9 +129,9 @@ app.include_router(users_router, prefix="/users")
 
 ---
 ## Recommended Project Structure
-
+```
 app/
-├── main.py
+
 ├── routers/
 │   ├── users.py
 │   └── items.py
@@ -141,7 +140,8 @@ app/
 ├── models/
 │   └── user.py
 ├── database.py
-
+├── main.py
+```
 ---
 ## Live Coding Example (1)
 ### Basic Dependency
@@ -176,25 +176,8 @@ app/
 
 ## Homework
 
-Mini Project – Modular App
-Using `APIRouter`, create a modular FastAPI project with the following:
-
-Folder structure:
-
-```
-app/
-├── main.py
-├── routers/
-│   └── users.py
-├── dependencies/
-│   └── auth.py
-```
----
-## Homework (continued)
-Features to implement:
-- A `/users/me` endpoint in `users.py` that depends on an `auth` dependency from `auth.py`.
-
-The `auth` dependency (`get_current_user`) should be imported and injected using `Depends`.
+[Link to homework](../module5_dependency_injection/README.md)
+Section: **Practical exercises**
 
 ---
 ## Remember

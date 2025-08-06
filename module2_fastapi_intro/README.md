@@ -57,6 +57,7 @@ This module provides an introduction to query and path parameters, as well as py
     - Explore the interactive docs at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
     
 ## 🧪 Practical Exercises: Item Management API
+
 ### 📝 Problem 1: Define the Item model
 - Objective: Create a data model for storing item information using Pydantic.
 
@@ -102,8 +103,8 @@ This module provides an introduction to query and path parameters, as well as py
 
 
 ## Hints
-    
-    ***Pydantic model class `Item` for the API:***
+1. **Pydantic model class `Item` for the API:**
+
     ```python
     from pydantic import BaseModel
 
@@ -113,14 +114,14 @@ This module provides an introduction to query and path parameters, as well as py
         in_stock: bool = True
     ```
 
-    ***Storage for items:***
+2. **Storage for items:**
     ```python
     items: list = list(Item(name="Sample Item " + str(i+1), price=(i+1) * 10.0, in_stock=True) for i in range(10))
     ```
 
     
-    ***Endpoints for creating and retrieving items:***
-    ```python
+3. **Endpoints for creating and retrieving items:**
+    ```
     -GET  -- /items: returns a list of items
     -POST -- /items: creates a new item
     -GET  -- /items/{item_id}: returns a specific item by ID
@@ -136,13 +137,10 @@ This module provides an introduction to query and path parameters, as well as py
             return {"error": "Item not found"}
         return items[item_id]
 
-
     ## Query parameters example
     @app.get("/items/")
     def read_item(skip:int = 0, limit:int = 10):
         return items[skip: skip + limit]
-
-
 
     # POST request example
     @app.post("/items/")

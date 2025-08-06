@@ -248,7 +248,7 @@ alembic init alembic
 ## Homework
 
 [Link to homework](../module4_databases/README.md)
-Section: ** Practical Exercises: One-to-Many Relationships with SQLAlchemy**
+Section: **Practical Exercises: One-to-Many Relationships with SQLAlchemy**
 
 ---
 ## Remember
