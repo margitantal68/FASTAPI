@@ -174,6 +174,12 @@ app/
 - Create an endpoint `/profile` that requires this dependency and returns the current user.
 ---
 
+## TODO: Tips for adding SQLAlchemy to FastAPI
+
+[https://donnypeeters.com/blog/fastapi-sqlalchemy/](https://donnypeeters.com/blog/fastapi-sqlalchemy/)
+
+---
+
 ## Homework
 
 [Link to homework](../module5_dependency_injection/README.md)

@@ -135,7 +135,7 @@ def get_items():
 
 - Store secrets and configs in `.env` file 
 
-- Use  `python-dotenv` or `pydantic.BaseSettings` 
+- Use  `python-dotenv` or `pydantic-settings` 
 
 
 - `.env` example: 

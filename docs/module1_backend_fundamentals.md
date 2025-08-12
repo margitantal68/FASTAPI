@@ -36,7 +36,7 @@ paginate: true
 * Handles:
         - Data processing  
         - Authentication  
-        - Business rules  
+        - Business logic 
         - Communication with the frontend  
 
 ---
@@ -113,7 +113,7 @@ Built on **Starlette** (ASGI) and **Pydantic**
 - Install Python 3.11+  
 - Install VS Code or PyCharm  
 - Git and GitHub setup  
-- HTTP clients: Postman or Insomnia  
+- HTTP clients: Postman, Insomnia, [Bruno](https://www.usebruno.com/)  
 - Python virtual environments:
 
 ```bash
@@ -124,6 +124,7 @@ source .venv/bin/activate
 ## Intro to Git and Version Control
 
 - What is `git`?
+    - VCS (Version Control System)
     - Tracks code changes
     - Enables collaboration
 - Common commands:
