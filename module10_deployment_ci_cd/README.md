@@ -15,14 +15,12 @@ module10_deployment_ci_cd/
 
 2. Copy the `module6_security` into `backend` folder
 ```bash
-cd module6_security
-copy * ../module10_deployment_ci_cd/backend
+cp -r module6_security/*  module10_deployment_ci_cd/backend
 ```
 
 3. Copy the `module6_frontend` into `frontend` folder
-```bash
-cd module6_frontend
-copy * ../module10_deployment_ci_cd/frontend
+```bash 
+cp -r module6_frontend/*  module10_deployment_ci_cd/frontend
 ```
 You should see the following structure:
 
