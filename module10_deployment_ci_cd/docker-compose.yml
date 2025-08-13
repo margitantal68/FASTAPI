@@ -7,6 +7,7 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres123!
+      - POSTGRES_DB=fastapi_week10
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
