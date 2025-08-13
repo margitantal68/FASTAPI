@@ -47,7 +47,7 @@ uvicorn main:app --reload
 cd frontend/my-app
 npm run dev
 ```
-
+6. **Don't forget to stop both frontend and backend**
 
 ## Docker Files
 
@@ -146,8 +146,8 @@ volumes:
 
 ```
 
-## GitHub app registration
-✅ Step-by-Step: Register an OAuth App on GitHub
+## GitHub `OAuth app` registration
+✅ Step-by-Step: Register an `OAuth App` on GitHub
 
 1. Go to GitHub Developer Settings
 
@@ -181,6 +181,17 @@ You’ll use these values when implementing OAuth in your app.
 
 ## Backend 
 
+- `.env`: update  `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` with the previously obtained values
+
+```bash
+DB_USER=
+DB_PASS=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+JWT_SECRET_KEY="your_secret_key"
+JWT_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+```
 
 - `main.py`: Allow requests from `http://localhost:3000` too.
 

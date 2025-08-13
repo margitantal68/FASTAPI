@@ -41,7 +41,7 @@
 
 3. **Create a database:**
    ```bash
-   psql -U postgres -c "CREATE DATABASE mydatabase;"
+   psql -U postgres -c "CREATE DATABASE fastapi_week4;"
    ```
 ## Configure Environment Variables
 1. **Copy the example environment file:**
