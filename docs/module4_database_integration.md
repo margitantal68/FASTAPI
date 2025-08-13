@@ -17,7 +17,7 @@ paginate: true
 
 
 # Module 4: Database Integration with FastAPI
-## Overview
+## 🚀  Overview
 - Intro to databases and SQLAlchemy ORM
 - Creating models and schemas
 - Performing CRUD operations
@@ -251,7 +251,7 @@ alembic init alembic
 Section: **Practical Exercises: One-to-Many Relationships with SQLAlchemy**
 
 ---
-## Remember
+## 🎯 Remember
 - SQLAlchemy ORM basics
 - Creating models and schemas
 - Performing CRUD operations

@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres123!
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5440:5432"
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres123!@db:5440/fastapi_week10
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend/my-app
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+
+
+volumes:
+  postgres_data:

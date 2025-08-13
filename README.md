@@ -1,4 +1,4 @@
-# FASTAPI Tutorial
+# FastAPI Tutorial
 
 This repository contains training material for a FASTAPI tutorial. Each module is organized in its own folder for clarity and ease of navigation.
 

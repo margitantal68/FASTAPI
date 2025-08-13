@@ -7,8 +7,8 @@ class:
     - invert
 paginate: true
 ---
-## Module 9: Asynchronous Programming
-### Overview
+# Module 9: Asynchronous Programming
+## 🚀 Overview
 - Understanding `async` and `await`
 - Async database interactions with
     - `asyncpg` Postgres driver
@@ -270,7 +270,7 @@ class UserRead(BaseModel):
 
 ---
 
-## Remember
+## 🎯 Remember
 
 - `async` / `await` → enables non-blocking concurrency
 

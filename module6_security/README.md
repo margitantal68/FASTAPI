@@ -41,8 +41,8 @@ You'll see a list (if any exist) and a button to "New OAuth App". Click it.
 Here’s what each field means:
 - Field	Description
 Application name	Name of your app (e.g., MyCoolApp)
-Homepage URL	URL of your app or site (e.g., https://mycoolapp.com)
-- Authorization callback URL	The URL GitHub will redirect to after user authorization. Must match your backend’s expected callback (e.g., https://mycoolapp.com/auth/github/callback)
+Homepage URL	`http://localhost:5173`
+- Authorization callback URL	`http://localhost:8000/auth/github/callback`
 - Application description (optional)	Short description of your app
 
 5. Click "Register application"

@@ -7,8 +7,8 @@ class:
     - invert
 paginate: true
 ---
-## Module 6: Security  
-### Overview
+# Module 6: Security  
+## 🚀  Overview
 - Authentication and authorization
 - Register and login flow using a local database
 - Password hashing - `passlib` library
@@ -328,7 +328,7 @@ Section: **Practical exercises**
 
 ---
 
-## Remember
+## 🎯 Remember
 - Database models vs Pydantic models
 - Password `hashing` and `JWT` concepts
 - Creating secure `register`/`login` flows

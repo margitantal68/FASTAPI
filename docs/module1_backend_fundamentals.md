@@ -16,13 +16,11 @@ paginate: true
 </style> -->
 # Module 1: Backend Development with FastAPI
 
-## Course Introduction
-
-**What you'll learn:**
-
-- Build high-performance APIs  
-- Use databases, authentication, and Docker  
-- Deploy real-world backend systems  
+## 🚀 Overview
+- Backend development fundamentals
+- REST APIs and FastAPI basics
+- Setting up your development environment
+- Python virtual environments 
 
 ---
 
@@ -176,7 +174,7 @@ http://localhost:8000/
 ---
 
 
-## Remember
+## 🎯 Remember
 - Backend development fundamentals
 - Client-server model
 - REST APIs and FastAPI basics

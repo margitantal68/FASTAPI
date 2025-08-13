@@ -17,7 +17,7 @@ paginate: true
 
 # Module 2: Getting Started with FastAPI
 
-## Overview
+## 🚀 Overview
 - FastAPI project structure  
 - Creating GET API endpoints  
 - Path and query parameters  
@@ -191,7 +191,7 @@ FastAPI auto-generates API docs:
 Section: **Practical Exercises: Item Management API**
 
 ---
-## Remember
+## 🎯 Remember
 
 - FastAPI project structure
 - GET endpoints

@@ -9,7 +9,7 @@ paginate: true
 ---
 
 # Module 3: Intermediate FastAPI 
-## Overview
+## 🚀 Overview
 - Request and response models 
 - Response status codes 
 - Error handling 
@@ -171,7 +171,7 @@ Section: **Practical Exercises: FastAPI Modular App**
 
 ---
 
-## Remember
+## 🎯 Remember
 - The structure of a FastAPI app 
 - Modular architecture and routes 
 - Request and response models using pydantic 

@@ -10,7 +10,7 @@ paginate: true
 
 # Module 5: Dependency Injection and Modularization in FastAPI
 
-## Overview
+## 🚀 Overview
 - FastAPI’s Dependency Injection System
 - Reusable Dependencies (DB session, auth)
 - Modular App Structure with Routers
@@ -186,7 +186,7 @@ app/
 Section: **Practical exercises**
 
 ---
-## Remember
+## 🎯 Remember
 
 - FastAPI uses `Depends` for DI
 

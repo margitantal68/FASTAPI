@@ -7,8 +7,8 @@ class:
     - invert
 paginate: true
 ---
-## Module 7: Advanced API Design
-### Overview
+# Module 7: Advanced API Design
+## 🚀 Overview
 - API versioning
 - Pagination, filtering, and sorting
 - Rate limiting
@@ -157,7 +157,7 @@ async def get_cached_data():
 Section: Practical Exercises: Advanced API Design in FastAPI
 
 ---
-## Remember
+## 🎯 Remember
 
 - Use versioning to manage API changes.
 - Implement pagination, filtering, and sorting for better data handling.
