@@ -150,26 +150,31 @@ volumes:
 
 ## GitHub app registration
 ✅ Step-by-Step: Register an OAuth App on GitHub
+
 1. Go to GitHub Developer Settings
-Open your browser and go to:
-https://github.com/settings/developers
+
+Open your browser and go to: https://github.com/settings/developers
 
 2. Choose "OAuth Apps"
+
 On the left-hand sidebar, under "Developer settings", click on "OAuth Apps".
 
 3. Click "New OAuth App"
+
 You'll see a list (if any exist) and a button to "New OAuth App". Click it.
 
 4. Fill Out the OAuth Application Form
+
 Here’s what each field means:
 - Field	Description
-Application name	Name of your app (e.g., MyCoolApp)
-Homepage URL: `http://localhost:3000`
-- Authorization callback URL: `http://localhost:8000/auth/github/callback`
-- Application description (optional)	Short description of your app
+  - Application name:	Name of your app (e.g., MyCoolApp)
+  - Homepage URL: `http://localhost:3000`
+  - Authorization callback URL: `http://localhost:8000/auth/github/callback`
 
 5. Click "Register application"
+
 🎉 After Registration
+
 Once registered, GitHub will give you:
 - `Client ID` – Public identifier of your app
 - `Client Secret` – Keep this secret! Used to authenticate your app
@@ -229,4 +234,4 @@ docker compose up --build
 
 - Backend → http://localhost:8000
 - Frontend → http://localhost:3000
-- Postgres → localhost:5432
+- Postgres → localhost:5440
