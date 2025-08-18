@@ -2,7 +2,7 @@
 # Environment variables
 .env
 */.env
-*/.log
+*.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
