@@ -77,7 +77,7 @@
 - Bonus:
   - Add support for descending sort via order_dir=desc.
 
-### ✅ Exercise 3: Apply rate limiting
+### ✅ Exercise 4: Apply rate limiting
 `main.py`
 
 - Objective: Limit request frequency to sensitive routes.
@@ -89,7 +89,7 @@
 - Bonus:
     - Apply different limits to authenticated vs unauthenticated users.
 
-### ✅ Exercise 4: Schedule background tasks
+### ✅ Exercise 5: Schedule background tasks
 `main.py`
 
 - Objective: Offload non-blocking tasks using BackgroundTasks.
@@ -101,7 +101,7 @@
 - Bonus:
   - Add another background task to notify an admin after email is sent.
 
-### ✅ Exercise 5: Add Caching to Expensive Operations
+### ✅ Exercise 6: Add Caching to Expensive Operations
 `main.py`
 
 - Objective: Cache expensive or frequently called endpoints.
