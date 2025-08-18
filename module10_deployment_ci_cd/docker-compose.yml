@@ -16,8 +16,6 @@ services:
     build: ./backend
     ports:
       - "8000:8000"
-    environment:
-      - DATABASE_URL=postgresql://postgres:postgres123!@db:5440/fastapi_week10
     depends_on:
       - db
 

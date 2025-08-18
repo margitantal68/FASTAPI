@@ -31,8 +31,8 @@
 - Objective: Create two versions of a simple product API.
 
 - Instructions:
-  - Create a /v1/products/ endpoint that returns a list of product names.
-  - Create a /v2/products/ endpoint that returns product names and prices.
+  - Create an /api//v1/products/ endpoint that returns a list of product names.
+  - Create an /api/v2/products/ endpoint that returns product names and prices.
 - Test that both endpoints work independently.
 
 

@@ -54,7 +54,7 @@ async def login(request: Request):
 
 # Simulated email sending task
 def log_email_to_file(email: str):
-    with open("email_log.txt", "a") as f:
+    with open("email.log", "a") as f:
         f.write(f"{datetime.now()} - Sent email to: {email}\n")
 
 @app.post("/send-email/")
@@ -74,7 +74,7 @@ async def send_email(
 
 # Simulate notifying an admin
 def notify_admin(email: str):
-    with open("admin_notifications.txt", "a") as f:
+    with open("admin_notifications.log", "a") as f:
         f.write(f"{datetime.now()} - Admin notified of email to: {email}\n")
 
 ## Excercise 5.
