@@ -10,7 +10,9 @@ This repository contains training material for a FASTAPI tutorial. Each module i
 - [Module 5: Dependency Injection](docs/module5_dependency_injection.md)
 - [Module 6: Security](docs/module6_security.md)
 - [Module 7: Advanced API Design](docs/module7_advanced_api_design.md)
+- [Module 8: Testing APIs](docs/module8_testing_apis.md)
 - [Module 9: Asynchronous Programming](docs/module9_asynchronous_programming.md)
+- [Module 10: Deployment and CI/CD](docs/module10_deployment_ci_cd.md)
 
 ⚙️ ## Structure
 
@@ -28,7 +30,9 @@ This repository contains training material for a FASTAPI tutorial. Each module i
 - [Module 5: Dependency Injection](./module5_dependency_injection/README.md)
 - [Module 6: Security](./module6_security/README.md)
 - [Module 7: Advanced API Design](./module7_advanced_api/README.md)
+- [Module 8: Testing APIs](./module8_testing_apis/README.md)
 - [Module 9: Asynchronous Programming](./module9_asynchronous_programming/README.md)
+- [Module 10: Deployment and CI/CD](./module10_deployment_ci_cd/README.md)
 
 ❓ ## How to Use
 

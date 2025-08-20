@@ -27,7 +27,7 @@
 
 ## Practical Exercises: Advanced API Design in FastAPI
 
-### ✅ Exercise 1: Implement a Product Catalog
+### ✅ Exercise 1: Implement a Product catalog
 
 `models/product.py`
 
@@ -101,7 +101,7 @@
 - Bonus:
   - Add another background task to notify an admin after email is sent.
 
-### ✅ Exercise 6: Add Caching to Expensive Operations
+### ✅ Exercise 6: Add caching to expensive operations
 `main.py`
 
 - Objective: Cache expensive or frequently called endpoints.

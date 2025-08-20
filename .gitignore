@@ -4,6 +4,9 @@
 */.env
 *.log
 
+# Databases - ignore DB files in any directory
+*.db
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
