@@ -16,22 +16,22 @@ This repository contains training material for a FASTAPI tutorial. Each module i
 
 ⚙️ ## Structure
 
-- `module1_backend_fundamentals/`  
+- `module01_backend_fundamentals/`  
     Foundational backend concepts and setup.
-- `module2_fastapi_intro/`  
+- `module02_fastapi_intro/`  
     Introduction to FASTAPI basics.
 - *(Additional modules follow the same structure)*
 
 📊 ## Practical Exercises
 - [Module 1: Backend Fundamentals](./module01_backend_fundamentals/README.md)
-- [Module 2: FastAPI Introduction](./module2_fastapi_intro/README.md)
-- [Module 3: Intermediate FastAPI](./module3_request_response/README.md)
-- [Module 4: Database Integration](./module4_databases/README.md)
-- [Module 5: Dependency Injection](./module5_dependency_injection/README.md)
-- [Module 6: Security](./module6_security/README.md)
-- [Module 7: Advanced API Design](./module7_advanced_api/README.md)
-- [Module 8: Testing APIs](./module8_testing_apis/README.md)
-- [Module 9: Asynchronous Programming](./module9_asynchronous_programming/README.md)
+- [Module 2: FastAPI Introduction](./module02_fastapi_intro/README.md)
+- [Module 3: Intermediate FastAPI](./module03_request_response/README.md)
+- [Module 4: Database Integration](./module04_databases/README.md)
+- [Module 5: Dependency Injection](./module05_dependency_injection/README.md)
+- [Module 6: Security](./module06_security/README.md)
+- [Module 7: Advanced API Design](./module07_advanced_api/README.md)
+- [Module 8: Testing APIs](./module08_testing_apis/README.md)
+- [Module 9: Asynchronous Programming](./module09_asynchronous_programming/README.md)
 - [Module 10: Deployment and CI/CD](./module10_deployment_ci_cd/README.md)
 
 ❓ ## How to Use
