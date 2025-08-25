@@ -1,4 +1,4 @@
-# Module 4: Database integration
+# Module 9: Asynchronous Programming
 
 ## Getting Started
 1. **Create a virtual environment:**
