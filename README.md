@@ -1,48 +1,39 @@
-# FastAPI Tutorial
+# 🚀 FastAPI Tutorial
 
 This repository contains training material for a FASTAPI tutorial. Each module is organized in its own folder for clarity and ease of navigation.
 
-👩‍🏫 ## Slides
-- [Module 1: Backend Fundamentals](docs/module01_backend_fundamentals.md)
-- [Module 2: FastAPI Introduction](docs/module02_getting_started_with_fastapi.md)
-- [Module 3: Intermediate FastAPI](docs/module03_intermediate_fastapi.md)
-- [Module 4: Database Integration](docs/module04_database_integration.md)
-- [Module 5: Dependency Injection](docs/module05_dependency_injection.md)
-- [Module 6: Security](docs/module06_security.md)
-- [Module 7: Advanced API Design](docs/module07_advanced_api_design.md)
-- [Module 8: Testing APIs](docs/module08_testing_apis.md)
-- [Module 9: Asynchronous Programming](docs/module09_asynchronous_programming.md)
-- [Module 10: Deployment and CI/CD](docs/module10_deployment_ci_cd.md)
+## ✅ Prerequisites
+- Python basics
+- Basics of REST APIs (HTTP protocol)
+- Basics of relational databases
 
-⚙️ ## Structure
+## 🧭 FastAPI Curriculum Overview
+### 📚 Complete Curriculum Structure
 
-- `module01_backend_fundamentals/`  
-    Foundational backend concepts and setup.
-- `module02_fastapi_intro/`  
-    Introduction to FASTAPI basics.
-- *(Additional modules follow the same structure)*
+| Module | Topic | Description | Slides | Exercises |
+|--------|-------|-------------|--------|-----------|
+| 01 | Backend Fundamentals | Introduction to backend development concepts. Python virtual environments. | [Slides](docs/module01_backend_fundamentals.md) | [Exercises](./module01_backend_fundamentals/README.md) |
+| 02 | FastAPI Introduction | Project structure. Pydantic models. API endpoints. | [Slides](docs/module02_getting_started_with_fastapi.md) | [Exercises](./module02_fastapi_intro/README.md) |
+| 03 | Intermediate FastAPI | Request and response models. Error handling. Modular architecture and routers. | [Slides](docs/module03_intermediate_fastapi.md) | [Exercises](./module03_request_response/README.md)|
+| 04 | Database Integration | SQLAlchemy and ORM. Models and schemas. CRUD operations. Alembic for DB migrations. | [Slides](docs/module04_database_integration.md) | [Exercises](./module04_databases/README.md)|
+| 05 | Dependency Injection | FastAPI dependency injection syste. Reusable dependencies (DB session, auth). | [Slides](docs/module05_dependency_injection.md) | [Exercises](./module05_dependency_injection/README.md)|
+| 06 | Security | Authentication and authorization. Password hashing. JWT tokens. OAuth2 with GitHub. | [Slides](docs/module06_security.md) | [Exercises](./module06_security/README.md)|
+| 07 | Advanced API Design | API versioning. Pagination, filtering, and sorting. Rate limiting. Background tasks. Caching. | [Slides](docs/module07_advanced_api_design.md) | [Exercises](./module07_advanced_api/README.md)|
+| 08 | Testing APIs | Why testing matters. Pytest basics. Unit and integration tests. | [Slides](docs/module08_testing_apis.md) | [Exercises](./module08_testing_apis/README.md)|
+| 09 | Asynchronous Programming | Understanding async and await. Async database interactions. Building async endpoints. | [Slides](docs/module09_asynchronous_programming.md) | [Exercises](./module09_asynchronous_programming/README.md)|
+| 10 | Deployment and CI/CD | Dockerizing a FastAPI app with React fromtend. Managing secrets with .env. | [Slides](docs/module10_deployment_ci_cd.md) | [Exercises](./module10_deployment_ci_cd/README.md)|
 
-📊 ## Practical Exercises
-- [Module 1: Backend Fundamentals](./module01_backend_fundamentals/README.md)
-- [Module 2: FastAPI Introduction](./module02_fastapi_intro/README.md)
-- [Module 3: Intermediate FastAPI](./module03_request_response/README.md)
-- [Module 4: Database Integration](./module04_databases/README.md)
-- [Module 5: Dependency Injection](./module05_dependency_injection/README.md)
-- [Module 6: Security](./module06_security/README.md)
-- [Module 7: Advanced API Design](./module07_advanced_api/README.md)
-- [Module 8: Testing APIs](./module08_testing_apis/README.md)
-- [Module 9: Asynchronous Programming](./module09_asynchronous_programming/README.md)
-- [Module 10: Deployment and CI/CD](./module10_deployment_ci_cd/README.md)
 
-❓ ## How to Use
+## ❓ How to Use
 
 1. Navigate to the desired module's folder.
 2. Follow the instructions or code examples provided within each module.
 3. Run and experiment with the code to reinforce your learning.
 
-📌 ## Requirements
+## 📌 Requirements
 
-- Python 3.7+
+- Python 3.8+
+- IDE: VSCode, PyCharm, ...
 - [FASTAPI](https://fastapi.tiangolo.com/)
 - Other dependencies as specified in each module
 

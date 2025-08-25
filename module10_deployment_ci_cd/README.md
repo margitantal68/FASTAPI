@@ -3,7 +3,7 @@
 ## App's structure
 
 In this module we dockerize the apps developed in module 6.
-First of all, we create copies of the following modules: `module6_security` and `module6_frontend`.
+First of all, we create copies of the following modules: `module06_security` and `module06_frontend`.
 
 1. Create the following structure:
 
@@ -13,14 +13,14 @@ module10_deployment_ci_cd/
 ├── frontend
 ```
 
-2. Copy the `module6_security` into `backend` folder
+2. Copy the `module06_security` into `backend` folder
 ```bash
-cp -r module6_security/*  module10_deployment_ci_cd/backend
+cp -r module06_security/*  module10_deployment_ci_cd/backend
 ```
 
-3. Copy the `module6_frontend` into `frontend` folder
+3. Copy the `module06_frontend` into `frontend` folder
 ```bash 
-cp -r module6_frontend/*  module10_deployment_ci_cd/frontend
+cp -r module06_frontend/*  module10_deployment_ci_cd/frontend
 ```
 You should see the following structure:
 
