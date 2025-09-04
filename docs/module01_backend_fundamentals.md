@@ -132,6 +132,26 @@ source .venv/bin/activate
     - `git push origin main` - Push to remote repo
 
 ---
+## Uvicorn - ASGI Server
+
+- Fast, lightweight ASGI server used to run Python web apps 
+- It handles incoming HTTP requests, passes them to your FastAPI app, and returns the responses back to clients.
+- It is the engine that runs your FastAPI app. 
+- **ASGI** = Asynchronous Server Gateway Interface
+
+---
+## WSGI vs ASGI
+
+| WSGI            | ASGI               |
+|----------------|---------------------|
+|synchronous     | asynchronous        |
+| Client --> Web Server --> App  | Client --> Web Server --> App  |
+| Handles 1 request at a time    | Handles multiple requests concurrently|
+| Blocking: each request waits   | Non-blocking: requests can run in parallel |
+
+
+
+---
 ## Project: Hello FastAPI - Development
 
 ```bash

@@ -14,7 +14,8 @@ paginate: true
 - Response status codes 
 - Error handling 
 - Modular architecture and routers 
-- Environment variables and config management 
+- Environment variables and config management
+- Advanced logging
 ---
 
 ## Pydantic Models
@@ -163,6 +164,37 @@ load_dotenv()
 DB_USER = os.getenv("DB_USER", "postgres")
 DB_PASS = os.getenv("DB_PASS", "postgres")
 ```
+---
+## Middleware in FastAPI
+
+- Middleware is a function that runs *before* and *after* each **request** in FastAPI.
+
+- The `@app.middleware("http")` decorator registers log_requests as middleware for all HTTP requests.
+
+---
+## Logging Middleware (Request/Response)
+```python 
+from fastapi import Request
+import time
+
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+    
+    response = await call_next(request)
+    
+    process_time = (time.time() - start_time) * 1000
+    logger.info(f"{request.method} {request.url.path} - {response.status_code} - {process_time:.2f}ms")
+    
+    return response
+```
+---
+## uvicorn Logging
+- FastAPI usually runs with Uvicorn, which has its own logging config:
+  ```
+  uvicorn app:app --log-level info --log-config logging.yaml
+  ```
+- **logging.yaml** can define loggers, handlers, and formatters.
 ---
 ## Homework 
 

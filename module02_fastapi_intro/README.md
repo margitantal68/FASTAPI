@@ -101,6 +101,14 @@ This module provides an introduction to query and path parameters, as well as py
     - If the `item_id` is invalid (negative or out of bounds), return an error.
     - Otherwise, return the corresponding Item from the list.
 
+### ✅ Problem: Log Endpoint Access
+
+- Objective: Create a GET `/log` endpoint that records an informational log message whenever it is accessed.
+
+- Instructions:
+    - Configure Python’s built-in logging module with a timestamped format.
+    - Use a logger instance to log a message like *log endpoint was called* at the *INFO* level.
+    - When the endpoint is hit, return a JSON response confirming the log action (e.g., {"Message": "Endpoint with standard logging"}).
 
 ## Hints
 1. **Pydantic model class `Item` for the API:**

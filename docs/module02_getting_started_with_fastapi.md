@@ -22,7 +22,8 @@ paginate: true
 - Creating GET API endpoints  
 - Path and query parameters  
 - Pydantic models 
-- Creating POST API endpoints  
+- Creating POST API endpoints
+- Standard logging  
 
 ---
 
@@ -174,6 +175,26 @@ def create_item(item: Item):
 curl -X POST "http://localhost:8000/items/" \
      -H "Content-Type: application/json" \
      -d '{"name": "Book", "price": 12.99}'
+```
+
+---
+## Standard Logging
+```python
+import logging
+from fastapi import FastAPI
+
+app = FastAPI()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+logger = logging.getLogger("myapp")
+
+@app.get("/")
+def read_root():
+    logger.info("Root endpoint was called")
+    return {"Hello": "World"}
 ```
 
 ---
