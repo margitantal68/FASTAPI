@@ -187,7 +187,7 @@ FastAPI auto-generates API docs:
 ---
 ## Homework
 
-[Link to homework](../module2_fastapi_intro/README.md)
+[Link to homework](../module02_fastapi_intro/README.md)
 Section: **Practical Exercises: Item Management API**
 
 ---

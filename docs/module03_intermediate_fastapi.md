@@ -166,7 +166,7 @@ DB_PASS = os.getenv("DB_PASS", "postgres")
 ---
 ## Homework 
 
-[Link to homework](../module3_request_response/README.md)
+[Link to homework](../module03_request_response/README.md)
 Section: **Practical Exercises: FastAPI Modular App**
 
 ---

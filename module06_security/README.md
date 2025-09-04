@@ -18,12 +18,18 @@ Welcome to the sixth module of the FastAPI tutorial! This module focuses on secu
     python -m venv .venv
     ```
     
-    **Activate the virtual environment:**
+1. **Activate the virtual environment:**
     - On macOS/Linux:
     ```bash
     source .venv/bin/activate  
     ```
     - On Windows use `.venv\Scripts\activate`
+
+1. **Install dependencies**
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## GitHub app registration
 ✅ Step-by-Step: Register an OAuth App on GitHub
@@ -54,11 +60,7 @@ Once registered, GitHub will give you:
 You’ll use these values when implementing OAuth in your app.
 
 
-## Install dependencies
 
-```bash
-pip install -r requirements.txt
-```
 
 ## Configure Environment Variables
 1. **Copy the example environment file:**

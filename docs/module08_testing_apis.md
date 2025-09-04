@@ -311,6 +311,13 @@ def test_read_user2_not_found():
     - Postman/Newman collections
     - Playwright (for frontend + backend)
 ---
+## Homework
+
+[Link to homework](../module08_testing_apis/README.md)
+Section: Practical Exercises: Testing APIs
+
+---
+
 ## 🎯 Remember
 - Write tests early
 - Use dependency overrides

@@ -44,3 +44,17 @@ def read_item(skip:int = 0, limit:int = 10):
 def create_item(item: Item):
     items.append(item)
     return {"item_name": item.name, "price": item.price}
+
+
+# Logging example - Standard Python logging
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger("myapp")
+
+@app.get("/log")
+def read_root():
+    logger.info("log endpoint was called")
+    return {"Message": "Endpoint with standard logging"}

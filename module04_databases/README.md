@@ -59,15 +59,13 @@
 ## Install Dependencies
 1. **Install SQLAlchemy:**
    ```bash
-   pip install sqlalchemy
+   pip install sqlalchemy dotenv psycopg2
    ```      
-1. **Install dotenv:**
-   ```bash
-   pip install dotenv
-   ```
-1. **Install psycopg2:**
-   ```bash
-   pip install psycopg2
+
+## Run the application
+    ```bash
+    python main.py
+
 
 ## Practical Exercises: One-to-Many Relationships with SQLAlchemy
 

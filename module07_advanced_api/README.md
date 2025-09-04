@@ -16,7 +16,7 @@
 
 ## Install Dependencies
    ```bash
-   pip install fastapi, uvicorn, slowapi, python-multipart
+   pip install fastapi uvicorn slowapi python-multipart
    ```      
 
 ## Run the Application

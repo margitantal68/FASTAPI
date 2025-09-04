@@ -182,7 +182,7 @@ app/
 
 ## Homework
 
-[Link to homework](../module5_dependency_injection/README.md)
+[Link to homework](../module05_dependency_injection/README.md)
 Section: **Practical exercises**
 
 ---

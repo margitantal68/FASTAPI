@@ -65,7 +65,12 @@
 
 ## Practical Exercises I: Working with `async` and `await`
 
-Solve the following problems in `main1.py`.
+- Solve the following problems in `main1.py`.
+
+- Run the program:    
+   ```bash
+   python main1.py
+   ```
 
 ### ✅ Problem 1: 
 
@@ -121,7 +126,12 @@ async def fetch_users():
 
 ## Practical Exercises II: Asynchronous FastAPI with Database
 
-Solve the following problems in `main2.py`.
+- Solve the following problems in `main2.py`.
+
+- Run the program:    
+   ```bash
+   uvicorn:main2 --reload
+   ```
 
 ### ✅ Problem 1: Asynchronous Endpoint
 
@@ -154,7 +164,12 @@ async def get_users():
 ```
 ## Practical Exercises III: Working with `SqlAlchemy` async
 
-Solve the following problems in `main3.py`.
+- Solve the following problems in `main3.py`.
+
+- Run the program:    
+   ```bash
+   uvicorn:main3 --reload
+   ```
 
 ### ✅ Problem 1: Database setup
 

@@ -34,6 +34,9 @@
         └── users.py
     ```
 
+1. **Run the application:**
+    ```bash
+    uvicorn main:app --reload
 ## 🧪 Practical Exercises: FastAPI Modular App
 
 ### ✅ Problem 1: Define the Item Model with Multiple Representations

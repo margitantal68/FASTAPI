@@ -153,7 +153,7 @@ async def get_cached_data():
 ---
 ## Homework
 
-[Link to homework](../module7_advanced_api/README.md)
+[Link to homework](../module07_advanced_api/README.md)
 Section: Practical Exercises: Advanced API Design in FastAPI
 
 ---

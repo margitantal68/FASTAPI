@@ -101,19 +101,15 @@ async def async_example():
 
 ---
 ## FastAPI & Databases
-```
-Feature	        asyncpg	        Databases	  SQLAlchemy ORM
-
-Performance     🔥 Fastest	⚡ Fast	          🚗 Slower
-Abstraction 	Low	        Medium	          High
-level
-Async Support	✅ Full	        ✅ Full	          ✅ (1.4+)
-Write raw SQL	Yes	        Optional	  Rarely
-Type safety	Manual	        Partial	          Strong
-Learning curve	Medium	        Low-Med	          High
-Maintainability	Low	        Medium	          High
-Best for	Max speed 	Async no ORM 	  Large apps, complex schemas
-```
+|Feature	 | asyncpg| Database |SQLAlchemy ORM|
+| -------- | ------- | -------- | ------- |
+|Performance      |🔥 Fastest|⚡ Fast.    |🚗 Slower|
+|Abstraction level| 	Low	   | Medium	 |   High|
+|Async Support    |	✅ Full    |	 ✅ Full | ✅ (1.4+)|
+|Write raw SQL    |	Yes	       | Optional|	  Rarely|
+|Type safety	  |Manual      | Partial |	  Strong| 
+|Learning curve	  |Medium      | Low-Med |    High  |
+|Maintainability  |Low	       |Medium	 |    High. |
 ---
 ## **Code Examples**
 

@@ -323,7 +323,7 @@ Create a page like `/oauth/callback` to extract the `JWT token` from the URL and
 ---
 ## Homework
 
-[Link to homework](../module6_security/README.md)
+[Link to homework](../module06_security/README.md)
 Section: **Practical exercises**
 
 ---
