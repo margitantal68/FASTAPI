@@ -37,6 +37,51 @@ paginate: true
 
 ---
 
+## Pydantic Examples (1)
+```python
+from pydantic import BaseModel, ValidationError
+
+class User(BaseModel):
+    name: str
+    age: int
+    email: str | None = None
+
+try:
+    u = User(name="Alice", age="34", email="alice@example.com")
+    print(u)
+except ValidationError as e:
+    print(e)
+```
+---
+## Pydantic Examples (2)
+Loading configuration from JSON file (`config.json`):
+```
+{
+  "host": "localhost",
+  "port": 8080,
+  "debug": true
+}
+```
+
+---
+## Pydantic Examples (2) (cont)
+```python
+from pydantic import BaseModel
+import json
+
+class Config(BaseModel):
+    host: str
+    port: int
+    debug: bool
+
+with open("config.json") as f:
+    data = json.load(f)
+
+config = Config(**data)
+print(config.port)
+```
+---
+
 ## FastAPI Project Structure
 
 Common structure:
@@ -112,6 +157,8 @@ curl http://localhost:8000/items/2
 curl http://localhost:8000/items
 # → 404 Not Found
 ```
+
+
 ---
 ## Query Parameters
 
@@ -143,6 +190,13 @@ curl http://localhost:8000/items?limit=3
 # → {"skip": 0, "limit": 3}
 ```
 
+---
+## Path vs Query Parameters
+| Path Parameters         | Query Parameters          |
+|-------------------------|---------------------------|
+| Part of the URL         | Appended after `?`        |
+| Required                | Optional (default values) |
+| Used to identify resource | Used for filtering, pagination |      
 ---
 
 ## Using Pydantic Models

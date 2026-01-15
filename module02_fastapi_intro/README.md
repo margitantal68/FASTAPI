@@ -146,12 +146,12 @@ This module provides an introduction to query and path parameters, as well as py
         return items[item_id]
 
     ## Query parameters example
-    @app.get("/items/")
+    @app.get("/items")
     def read_item(skip:int = 0, limit:int = 10):
         return items[skip: skip + limit]
 
     # POST request example
-    @app.post("/items/")
+    @app.post("/items")
     def create_item(item: Item):
         items.append(item)
         return {"item_name": item.name, "price": item.price}
