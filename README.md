@@ -32,7 +32,7 @@ This repository contains training material for a FASTAPI tutorial. Each module i
 
 ## 📌 Requirements
 
-- Python 3.8+
+- Python 3.11.2
 - IDE: VSCode, PyCharm, ...
 - [FASTAPI](https://fastapi.tiangolo.com/)
 - Other dependencies as specified in each module

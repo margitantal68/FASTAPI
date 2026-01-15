@@ -132,6 +132,17 @@ source .venv/bin/activate
     - `git push origin main` - Push to remote repo
 
 ---
+## Publish a Repo to GitHub
+
+- Create a new repository on GitHub: e.g., `your-repo`
+- Git commands to push local repo to GitHub:
+    - `git init` - Initialize a repo
+    - `git add .` - Stage changes
+    - `git commit -m "Initial commit"` - Commit changes
+    - `git remote add origin https://github.com/yourusername/your-repo.git` - Link to remote repo
+    - `git branch -M main` - Rename branch to main
+    - `git push origin main` - Push to remote repo
+---
 ## Uvicorn - ASGI Server
 
 - Fast, lightweight ASGI server used to run Python web apps 
