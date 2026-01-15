@@ -111,7 +111,7 @@ Built on **Starlette** (ASGI) and **Pydantic**
 - Install Python 3.11+  
 - Install VS Code or PyCharm  
 - Git and GitHub setup  
-- HTTP clients: Postman, Insomnia, [Bruno](https://www.usebruno.com/)  
+- API client tools: Postman, Insomnia, [Bruno](https://www.usebruno.com/)  
 - Python virtual environments:
 
 ```bash
