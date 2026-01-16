@@ -26,17 +26,49 @@ paginate: true
 ---
 ## Intro to SQLAlchemy ORM
 
-- SQLAlchemy is a popular ORM for Python
+- SQLAlchemy is a popular ORM library for Python
 - `ORM` = Object-Relational Mapping
     - Maps Python classes to database tables
 - Install: 
 ```bash
 pip install sqlalchemy
 ```
-
 ---
-## Creating Database Models
+## Steps to Integrate Database with FastAPI
+1. Connect to the database
+2. Define the base class
+3. Create database models
+4. Create tables in the database   
+5. Set up database session 
+6. Perform CRUD operations
+7. Close the session
+---
+## 1. Connect to a Database (Engine Creation)
 
+```python
+from sqlalchemy import create_engine
+
+SQLALCHEMY_DATABASE_URL = 'sqlite:///./test.db'
+
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
+```
+- Postgres example:
+```python
+SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@localhost/fastapi_week4'
+```
+---
+## 2. Setting up the Base Class
+
+```python
+from sqlalchemy.ext.declarative import declarative_base
+Base = declarative_base()
+```
+- `declarative_base()`: a factory function that constructs a base class for declarative class definitions
+  
+---
+## 3. Creating Database Models
+
+Python class --> Database table
 ```python
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -48,43 +80,56 @@ class Item(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
 ```
-
 ---
 
-## Database Configuration
+## Explanations
+- `declarative_base()`: A helper function that creates a base class.
+- `Base = declarative_base()`: This line initializes the base class for all ORM models.
+- `class Item(Base)`: This defines a new ORM model named `Item` that inherits from the base class.
+- `__tablename__`: Specifies the name of the database table.
+- `Column`: Defines a column in the table with its data type and constraints.
+- `primary_key=True`: Marks the column as the primary key.
+- `index=True`: Creates an index on the column for faster queries.
+---
+## 4. Database tables creation 
 
-- Use SQLAlchemy's `create_engine` to connect to the database
-```python
-from sqlalchemy import create_engine
+- Create the tables in the database (typically in `models.py` or `main.py`):
 
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./test.db'
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-```
-- Postgres example:
-```python
-SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@localhost/fastapi_week4'
+``` python
+Base.metadata.create_all(bind=engine)
 ```
 ---
-
-## Session Local and Base
+## 5. Database Session
 
 - Setup DB session:
 
 ```python
 from sqlalchemy.orm import sessionmaker
 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
-```
+SessionLocal = sessionmaker(bind=engine)
 
-- Create the tables in the database (typically in `models.py` or `main.py`):
+db = SessionLocal()
 
-
-``` python
-Base.metadata.create_all(bind=engine)
 ```
 ---
+## 6. Perform CRUD Operations
 
+```python
+# Create
+new_item = Item(name="Sample Item")
+db.add(new_item)
+db.commit()
+# Read
+items = db.query(Item).all()
+```
+---
+## 7. Close the session
+
+```python
+db.close()
+```
+
+---
 ## SQLAlchemy
 
 - Data Types
@@ -256,7 +301,7 @@ Section: **Practical Exercises: One-to-Many Relationships with SQLAlchemy**
 - Creating models and schemas
 - Performing CRUD operations
 - Using Alembic for migrations
-- Dependency injection with FastAPI 
+
 
 
 
