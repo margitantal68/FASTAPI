@@ -1,6 +1,27 @@
 # Module 6: Security: Authentication and Authorization
 Welcome to the sixth module of the FastAPI tutorial! This module focuses on security aspects of FastAPI, including authentication and authorization.
 
+**It is recommended to use Python 3.11 for this module.**
+1. List your installed Python versions
+- On MacOS/Linux terminal run:
+    ```bash
+    which -a python
+    ```
+- On Windows Command Prompt run:
+    ```bash
+    where python
+    ```
+2. Install Python 3.11 if not already installed
+3. Create a virtual environment with Python 3.11
+    ```bash
+    python3.11 -m venv .venv
+    ```
+4. Activate the virtual environment
+    - On macOS/Linux:
+    ```bash
+    source .venv/bin/activate  
+    ```
+    - On Windows use `.venv\Scripts\activate`
 
 ## Getting Started
 1. **Clone the repository**
@@ -189,7 +210,7 @@ You’ll use these values when implementing OAuth in your app.
     ├── utils.py
     ├── models/
     │   ├── user.py
-    └── routes/
+    └── routers/
         ├── users.py
     ```
 

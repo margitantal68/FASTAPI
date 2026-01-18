@@ -49,6 +49,14 @@ def read_items(query: str = Depends(get_query)):
     return {"q": query}
 ```
 ---
+## Explanation of the Example
+- `read_items`:
+  - `Depends()` tells FastAPI: Before calling this endpoint function, call another function first and use its return value as an argument.
+  - `get_query` is a dependency of `read_items`.
+- `get_query`:
+  - Extracts the query parameter `q` from the request.
+  - Returns the value of `q` to be used in `read_items`.
+---
 ## Why Use Dependency Injection?
 
 - **Decouples components**: Makes it easier to change or replace components without affecting others.
