@@ -172,7 +172,7 @@ def read_item(skip: int = 0, limit: int = 10):
 ### Examples:
 
 ```bash
-curl http://localhost:8000/items
+curl http://localhost:8000/items/
 # → {"skip": 0, "limit": 10}
 ```
 
@@ -180,13 +180,13 @@ curl http://localhost:8000/items
 ### Examples (cont):
 
 ```bash
-curl http://localhost:8000/items?skip=5&limit=3
+curl 'http://localhost:8000/items/?skip=5&limit=3'
 # → {"skip": 5, "limit": 3}
 
-curl http://localhost:8000/items?skip=5
+curl 'http://localhost:8000/items/?skip=5'
 # → {"skip": 5, "limit": 10}
 
-curl http://localhost:8000/items?limit=3
+curl 'http://localhost:8000/items/?limit=3'
 # → {"skip": 0, "limit": 3}
 ```
 
