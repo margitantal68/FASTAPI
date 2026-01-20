@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends, Query
+from fastapi import FastAPI, Depends, Query, Header
 from typing import Optional
 from fastapi.exceptions import HTTPException
 
@@ -32,8 +32,8 @@ def read_users(db: dict = Depends(get_fake_db)):
 
 # Live Coding - 3. Example
 
-def get_current_user(token: str = Query(...)):
-    if token == "secret":
+def get_current_user(x_token: str = Header(...)):
+    if x_token == "secret":
         return  "authenticated_user"
     raise HTTPException(status_code=401, detail="Invalid or missing token")
     

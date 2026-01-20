@@ -73,6 +73,17 @@ class UserResponse(BaseModel):
     email: str 
 ```
 ---
+## Improvements for UserRequest model
+
+```python
+class UserRequest(BaseModel):
+    username: str = Field(min_length=3, max_length=30)
+    fullname: str = Field(min_length=3, max_length=100)
+    email: EmailStr
+    password: str = Field(min_length=8)
+```
+
+---
 ## Code Example: Register User
 ```python
 @router.post("/register", response_model=UserResponse)
@@ -93,6 +104,20 @@ def create_user(user_req: UserRequest, db: Session = Depends(get_db)):
     response = UserResponse(username=new_user.username, email=new_user.email)
     return response
 ```
+---
+## Register User: Q&A
+- **Q1:** How are handeld input validation errors?
+- **A1:** FastAPI automatically returns `422 Unprocessable Entity` 
+  
+- **Q2:** How to handle duplicate usernames/emails?
+- **A2:** Check in DB before creating user, raise exception if exists
+
+- **Q3:** When is the SQL code generated and executed?
+- **A3:** SQL code is executed when `db.commit()` is called.
+  
+- **Q4:** Why do we use `db.refresh(new_user)`?
+- **A4:** To refresh the instance with data from the database (e.g. `id`)
+
 ---
 ## Testing User Registration with `curl`
 ```bash

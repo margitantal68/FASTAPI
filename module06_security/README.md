@@ -80,9 +80,6 @@ Once registered, GitHub will give you:
 
 You’ll use these values when implementing OAuth in your app.
 
-
-
-
 ## Configure Environment Variables
 1. **Copy the example environment file:**
    ```bash

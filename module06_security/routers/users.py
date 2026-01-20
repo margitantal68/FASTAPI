@@ -1,18 +1,23 @@
-from fastapi import APIRouter, HTTPException
-from models.user import User, UserRequest, UserResponse, UserLoginRequest, UserLoginResponse, ResponseMessage
-from fastapi import Depends
+import logging
+
+from jose import JWTError
+
+from fastapi import Depends, HTTPException  
+from fastapi import APIRouter
+
 from sqlalchemy.orm import Session
-from database import get_db
-from utils import hash_password, verify_password, create_access_token
-from fastapi.security import OAuth2PasswordRequestForm
 
 from fastapi import Security
 from fastapi.security import OAuth2PasswordBearer
-from utils import decode_access_token
 
+from models.user import User, UserRequest, UserResponse, UserLoginRequest, UserLoginResponse, ResponseMessage
+from database import get_db
+from utils import hash_password, verify_password, create_access_token, decode_access_token
+
+
+logging.basicConfig(level=logging.INFO)
 
 router = APIRouter()
-
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
@@ -22,10 +27,14 @@ def get_current_user(token: str = Security(oauth2_scheme), db: Session = Depends
         detail="Could not validate credentials",
         headers={"WWW-Authenticate": "Bearer"},
     )
+    logging.info(f"Token received: {token}")
     try:
+        logging.info("Decoding access token")
         payload = decode_access_token(token)
+        logging.info(f"Payload decoded: {payload}")
         username: str = payload.get("sub")
-        print(f"\n***** Decoded username: {username}\n")
+
+        logging.info(f"Decoded username: {username}")
         if username is None:
             raise credentials_exception
     except Exception:
@@ -35,16 +44,12 @@ def get_current_user(token: str = Security(oauth2_scheme), db: Session = Depends
         raise credentials_exception
     return user
 
-@router.get("/", dependencies=[Depends(get_current_user)])
+@router.get("/", response_model=list[UserResponse])
+# @router.get("/", dependencies=[Depends(get_current_user)])
 def get_users(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     users = db.query(User).all()
     return users
 
-
-# @router.get("/")
-# def get_users( db: Session = Depends(get_db)):
-#     users = db.query(User).all()
-#     return users
 
 @router.post("/register", response_model=UserResponse)
 def create_user(user_req: UserRequest, db: Session = Depends(get_db)):
@@ -72,8 +77,6 @@ def create_user(user_req: UserRequest, db: Session = Depends(get_db)):
     return response
 
 
-   
-
 @router.post("/login", response_model=UserLoginResponse)
 def login(user_req: UserLoginRequest, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == user_req.username).first()
@@ -100,3 +103,41 @@ def delete_user(id: int, db: Session = Depends(get_db)):
     return ResponseMessage(message="User deleted successfully")
 
 
+# Protected endpoint example
+def verify_access_token(token: str):
+    try:
+        payload = decode_access_token(token)
+        if payload is None:
+            raise HTTPException(status_code=401, detail="Invalid token")
+        username: str = payload.get("sub")
+        if username is None:
+            raise HTTPException(status_code=401, detail="Invalid token")
+        return username
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
+
+def get_current_username(
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)
+):
+    logging.info(f"Verifying token: {token}")
+
+    username = verify_access_token(token)
+    logging.info(f"Username from token: {username}")
+
+    user = db.query(User).filter(User.username == username).first()
+    logging.info(f"User from DB: {user.fullname if user else 'None'}")
+
+    if user is None:
+        raise HTTPException(status_code=401, detail="User not found")
+
+    return user.username
+
+
+@router.get("/protected")
+def protected_route(current_user: str = Depends(get_current_username)):
+    return {
+        "message": "You have accessed a protected route!",
+        "user": current_user
+    }
