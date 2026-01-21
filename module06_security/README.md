@@ -1,28 +1,6 @@
 # Module 6: Security: Authentication and Authorization
 Welcome to the sixth module of the FastAPI tutorial! This module focuses on security aspects of FastAPI, including authentication and authorization.
 
-**It is recommended to use Python 3.11 for this module.**
-1. List your installed Python versions
-- On MacOS/Linux terminal run:
-    ```bash
-    which -a python
-    ```
-- On Windows Command Prompt run:
-    ```bash
-    where python
-    ```
-2. Install Python 3.11 if not already installed
-3. Create a virtual environment with Python 3.11
-    ```bash
-    python3.11 -m venv .venv
-    ```
-4. Activate the virtual environment
-    - On macOS/Linux:
-    ```bash
-    source .venv/bin/activate  
-    ```
-    - On Windows use `.venv\Scripts\activate`
-
 ## Getting Started
 1. **Clone the repository**
     ```bash
@@ -47,9 +25,13 @@ Welcome to the sixth module of the FastAPI tutorial! This module focuses on secu
     - On Windows use `.venv\Scripts\activate`
 
 1. **Install dependencies**
-
+    - For Python **3.11**:
     ```bash
     pip install -r requirements.txt
+    ```
+    - For Python **3.14**:
+    ```bash
+    pip install -r requirements_py314.txt
     ```
 
 ## GitHub app registration
@@ -205,25 +187,54 @@ You’ll use these values when implementing OAuth in your app.
     ├── main.py
     ├── database.py
     ├── utils.py
+    ├── config.py
     ├── models/
     │   ├── user.py
     └── routers/
         ├── users.py
+        |── auth.py
     ```
+2. **Read the environment variables from `config.py`):**
 
-2. **Create the database connection (`database.py`):**
     ```python
     import os
+    from dotenv import load_dotenv
 
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import sessionmaker, declarative_base, Session
+    load_dotenv()
 
     # Read DB_USER and DB_PASS from environment variables
     DB_USER = os.getenv("DB_USER", "postgres")
     DB_PASS = os.getenv("DB_PASS", "postgres")
-    print(f"DB_USER: {DB_USER}, DB_PASS: {DB_PASS}")
+    DB_HOST = os.getenv("DB_HOST", "localhost")
+    DB_PORT = os.getenv("DB_PORT", "5432")
+    DB_NAME = os.getenv("DB_NAME", "fastapi_week6")
 
-    SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@localhost/fastapi_week6'
+    # JWT Configuration
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "your_secret_key")
+    JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+
+    ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30) 
+    ACCESS_TOKEN_EXPIRE_MINUTES = int(ACCESS_TOKEN_EXPIRE_MINUTES) 
+
+    # OAuth Configuration
+    GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
+    GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
+    GITHUB_REDIRECT_URI = "http://localhost:8000/auth/github/callback"
+
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+    JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+    FRONTEND_REDIRECT_URL = "http://localhost:5173/oauth/callback"
+    ```
+ 
+3. **Create the database connection (`database.py`):**
+    ```python
+    import os
+    from config import DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import sessionmaker, declarative_base, Session
+
+    SQLALCHEMY_DATABASE_URL = f'postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
+
 
     # Create engine
     engine = create_engine(
@@ -245,9 +256,13 @@ You’ll use these values when implementing OAuth in your app.
             db.close()
     ```
 
-3. **Create utility functions (`utils.py`):**
+4. **Create utility functions (`utils.py`):**
     ```python
+    import os
+    from config import JWT_SECRET_KEY, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
     from passlib.context import CryptContext
+    from datetime import datetime, timedelta
+    from jose import jwt
 
     pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -256,9 +271,23 @@ You’ll use these values when implementing OAuth in your app.
 
     def verify_password(plain_password, hashed_password):
         return pwd_context.verify(plain_password, hashed_password)
+
+    def create_access_token(data: dict, expires_delta: timedelta = None):
+        to_encode = data.copy()
+        expire = datetime.utcnow() + (expires_delta or timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+        to_encode.update({"exp": expire})
+        encoded_jwt = jwt.encode(to_encode, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
+        return encoded_jwt
+
+    def decode_access_token(token: str):
+        try:
+            payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+            return payload
+        except jwt.JWTError:
+            return None    
     ```
 
-4. **Create Database model for users (`models/user.py`):**
+5. **Create Database model for users (`models/user.py`):**
     ```python
     from sqlalchemy import Column, Integer, String
     from sqlalchemy.orm  import declarative_base
@@ -275,7 +304,7 @@ You’ll use these values when implementing OAuth in your app.
         email = Column(String, unique=True, index=True)
         hashed_password = Column(String)
     ```
-5. **Create Pydantic models for user registration (`models/user.py`):**
+6. **Create Pydantic models for user registration (`models/user.py`):**
     ```python
     class UserRequest(BaseModel):
         username: str
@@ -288,7 +317,7 @@ You’ll use these values when implementing OAuth in your app.
         email: str 
     ```
 
-6. **Create route for user registration (`routers/users.py`):**
+7. **Create route for user registration (`routers/users.py`):**
 
     ```python
     from fastapi import APIRouter, HTTPException
@@ -324,18 +353,11 @@ You’ll use these values when implementing OAuth in your app.
         return response
     ```
 
-7. **Create the main FastAPI app (`main.py`):**
+8. **Create the main FastAPI app (`main.py`):**
     ```python
-        import os
-
-        from dotenv import load_dotenv
-        load_dotenv()
-
         from fastapi import FastAPI
         from routers import users
 
-        from sqlalchemy import create_engine
-        from sqlalchemy.orm import sessionmaker
         from database import engine, Base
         from fastapi.middleware.cors import CORSMiddleware
 

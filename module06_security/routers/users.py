@@ -53,12 +53,12 @@ def get_users(db: Session = Depends(get_db), current_user: User = Depends(get_cu
 
 @router.post("/register", response_model=UserResponse)
 def create_user(user_req: UserRequest, db: Session = Depends(get_db)):
-    print("Endpoint called")
+    logging.info("Endpoint called")
     # Check if username exists
     existing_user = db.query(User).filter(User.username == user_req.username).first()
     if existing_user:
         raise HTTPException(status_code=400, detail="Username already exists")
-    print(f"Great! {user_req.username} is not taken")
+    logging.info(f"Great! {user_req.username} is not taken")
     # Create and save user
     new_user = User(
         username=user_req.username,
@@ -69,10 +69,11 @@ def create_user(user_req: UserRequest, db: Session = Depends(get_db)):
         github_id=None,
         avatar_url=None
     )
-    print(new_user)
+    logging.info(f"Created new user: {new_user.id}")
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
+    logging.info(f"Created new user: {new_user.id}")
     response = UserResponse(username=new_user.username, email=new_user.email)
     return response
 

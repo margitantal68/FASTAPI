@@ -1,4 +1,3 @@
-import os 
 import httpx
 from fastapi import APIRouter, HTTPException, Request, Depends
 from starlette.responses import RedirectResponse
@@ -8,13 +7,21 @@ from sqlalchemy.orm import Session
 from database import get_db  # Your DB session dependency
 from models.user import User  
 
+from config import (
+    GITHUB_CLIENT_ID,
+    GITHUB_CLIENT_SECRET,
+    GITHUB_REDIRECT_URI,
+    JWT_SECRET_KEY,
+    JWT_ALGORITHM,
+    FRONTEND_REDIRECT_URL,
+)
 
-GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
-GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
-GITHUB_REDIRECT_URI = "http://localhost:8000/auth/github/callback"
-JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
-JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
-FRONTEND_REDIRECT_URL = "http://localhost:5173/oauth/callback"
+# GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
+# GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
+# GITHUB_REDIRECT_URI = "http://localhost:8000/auth/github/callback"
+# JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
+# JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+# FRONTEND_REDIRECT_URL = "http://localhost:5173/oauth/callback"
 
 router = APIRouter()
 

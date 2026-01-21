@@ -1,17 +1,11 @@
-import os
-
-from dotenv import load_dotenv
-load_dotenv()
 
 from fastapi import FastAPI
 from routers import users, auth
 
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from database import engine, Base
 from fastapi.middleware.cors import CORSMiddleware
 
-# # Create tables
+# Create tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
