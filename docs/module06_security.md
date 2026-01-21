@@ -160,14 +160,20 @@ class UserLoginResponse(BaseModel):
     access_token_type: str = "bearer"
 ```
 ---
+## Parts of a JWT
+
+Parts of a JWT token: <br>
+<img src="images/jwt_parts.png" alt="JWT parts" width="800"/> 
+
+---
 ## JWT (JSON Web Tokens)
 
-- JSON Web Tokens (JWT) are encoded access tokens
-
-- Contain claims (user ID, role, expiration, ...)
-
-- Signed using a secret key or RSA
+- **Header**: Contains metadata about the token, such as the algorithm used for signing. Base64Url encoded.
+- **Payload**: Stores the claims, i.e., data being transmitted. Base64Url encoded.
+- **Signature**: Ensures the token's integrity and authenticity. It is generated using the header, payload, and a secret key. 
 ---
+
+
 
 ## Create JWT access token
 
@@ -185,6 +191,12 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
     encoded_jwt = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return encoded_jwt
 ```
+---
+## How JWT tokens work?
+
+How JWT tokens work: <br>
+<img src="images/db_login_jwt.png" alt="JWT workflow" width="800"/>
+
 ---
 
 ## Validate user credentials
@@ -297,6 +309,12 @@ def decode_access_token(token: str):
 - Redirect to frontend with token
 - Store token in frontend and use it like local login
 ---
+## Github OAuth2 login flow
+
+GitHub OAuth2 flow: <br>
+<img src="images/github_login.png" alt="OAuth2 GitHub flow" width="600"/>
+
+---
 ## Register Your App with GitHub
 - Go to: https://github.com/settings/developers
 - Click "New OAuth App"
@@ -317,6 +335,12 @@ def decode_access_token(token: str):
 - **Backend** retrieves user info from **GitHub** using `access token`
 - **Backend** issues `JWT token` containing user info
 - **Frontend** receives `JWT token` and stores it in local storage
+
+---
+<!-- Markdown URL -->
+
+[GitHub OAuth2 flow](https://claude.ai/public/artifacts/c4114f4b-b87a-4acf-adf6-37426cb9419b)
+
 
 ---
 ## Code Example: Backend - auth.py

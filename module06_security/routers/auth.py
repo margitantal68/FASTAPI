@@ -16,13 +16,6 @@ from config import (
     FRONTEND_REDIRECT_URL,
 )
 
-# GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
-# GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
-# GITHUB_REDIRECT_URI = "http://localhost:8000/auth/github/callback"
-# JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
-# JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
-# FRONTEND_REDIRECT_URL = "http://localhost:5173/oauth/callback"
-
 router = APIRouter()
 
 @router.get("/github/login")
