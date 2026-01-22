@@ -24,10 +24,30 @@ paginate: true
 - Confidence in deployments
     - When your tests are passing --> the new version of your API is not breaking existing functionality. 
 ---
+## Tset Types Overview
+| Test Type        | Scope                          | Dependencies          | Speed       |
+|------------------|--------------------------------|-----------------------|-------------|
+| Unit Tests       | Single functions/methods       | Mocked                | Fast        |
+| Integration Tests| Multiple components together   | Real dependencies     | Moderate    |
+| End-to-End Tests | Full application stack         | Real services         | Slow        |
+---
+
 ## FastAPI Testing Tools
-- `pytest`
-- `httpx`
-- FastAPI's `TestClient`
+- `pytest`: popular testing framework for Python
+- `httpx`: HTTP client for making requests in tests
+- FastAPI's `TestClient`: built on `httpx`, simplifies testing FastAPI apps
+
+---
+## Dependencies Installation
+
+- FastAPI dependencies:
+    ```bash
+    pip fastapi, uvicorn
+    ```
+- Test dependencies:
+    ```bash
+    pip install pytest httpx
+    ```
 
 ---
 ## Project's Structure
@@ -61,6 +81,12 @@ def test_root():
     assert response.json() == {"message": "Hello, FastAPI!"}
 
 ```
+---
+## Explanation of the Test Code
+- Import `TestClient` from `fastapi.testclient` and the FastAPI `app` from `main.py`
+- Create a `TestClient` instance: simulates requests to the FastAPI app
+- Define a test function that makes a GET request to the root endpoint
+- Assert that the response status code is 200 and the JSON content matches expectations 
 ---
 ## Run pytest
 

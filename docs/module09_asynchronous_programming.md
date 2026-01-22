@@ -40,7 +40,9 @@ asyncio.run(greet())
 ---
 ## Asynchronous Programming in Python
 
-[Colab Notebook](https://colab.research.google.com/drive/1o9ael1-Z3j8dKZ_FrhUhbn220fhGcMtn?usp=sharing)
+- Understanding:[Asyncio in Python](https://www.youtube.com/watch?v=Qb9s3UiMSTA)
+
+- Practice: [Colab Notebook](https://colab.research.google.com/drive/1o9ael1-Z3j8dKZ_FrhUhbn220fhGcMtn?usp=sharing)
 
 ---
 

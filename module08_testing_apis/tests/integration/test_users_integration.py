@@ -21,6 +21,7 @@ def override_get_db():
     finally:
         db.close()
 
+# --- Override the dependency during tests --> Use test.db ---
 app.dependency_overrides[get_db] = override_get_db
 client = TestClient(app)
 

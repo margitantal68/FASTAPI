@@ -341,6 +341,8 @@ GitHub OAuth2 flow: <br>
 
 [GitHub OAuth2 flow](https://claude.ai/public/artifacts/c4114f4b-b87a-4acf-adf6-37426cb9419b)
 
+Link: https://claude.ai/public/artifacts/c4114f4b-b87a-4acf-adf6-37426cb9419b
+
 
 ---
 ## Code Example: Backend - auth.py
