@@ -1,5 +1,6 @@
 # Module 6: Security: Authentication and Authorization
-Welcome to the sixth module of the FastAPI tutorial! This module focuses on security aspects of FastAPI, including authentication and authorization.
+Welcome to the sixth module of the FastAPI tutorial! 
+This module focuses on security aspects of FastAPI, including authentication and authorization.
 
 ## Getting Started
 1. **Clone the repository**
@@ -34,47 +35,6 @@ Welcome to the sixth module of the FastAPI tutorial! This module focuses on secu
     pip install -r requirements_py314.txt
     ```
 
-## GitHub app registration
-✅ Step-by-Step: Register an OAuth App on GitHub
-1. Go to GitHub Developer Settings
-Open your browser and go to:
-https://github.com/settings/developers
-
-2. Choose "OAuth Apps"
-On the left-hand sidebar, under "Developer settings", click on "OAuth Apps".
-
-3. Click "New OAuth App"
-You'll see a list (if any exist) and a button to "New OAuth App". Click it.
-
-4. Fill Out the OAuth Application Form
-Here’s what each field means:
-- Field	Description
-Application name	Name of your app (e.g., MyCoolApp)
-Homepage URL	`http://localhost:5173`
-- Authorization callback URL	`http://localhost:8000/auth/github/callback`
-- Application description (optional)	Short description of your app
-
-5. Click "Register application"
-🎉 After Registration
-Once registered, GitHub will give you:
-- `Client ID` – Public identifier of your app
-- `Client Secret` – Keep this secret! Used to authenticate your app
-
-You’ll use these values when implementing OAuth in your app.
-
-## Configure Environment Variables
-1. **Copy the example environment file:**
-   ```bash
-   cp .env.example .env
-   ```
-2. **Edit the `.env` file:**
-   - Set your database user and password in the `.env` file:
-   ```plaintext
-   DB_USER=your_db_user
-   DB_PASS=your_db_password 
-   GITHUB_CLIENT_ID=your_client_id
-   GITHUB_CLIENT_SECRET=your_client_secret
-   ```
 
 ## Practical exercises
 
@@ -102,7 +62,6 @@ You’ll use these values when implementing OAuth in your app.
 - Tasks:
     - Verify if the provided password matches the hashed password.
     - Return a success message or a 401 error on failure.
-
     - Use plain DB authentication, no JWT yet.
 
 ### Part 2: JWT Token-Based Authorization
@@ -135,36 +94,6 @@ You’ll use these values when implementing OAuth in your app.
     - Return a success or error message.
 
 
-### Part 3: GitHub OAuth2 Authentication
-
-#### ✅ Exercise 7: Implement GitHub Login Flow
-- Goal: Add `/auth/github/login` and redirect to **GitHub**.
-- Tasks:
-    - Redirect users to GitHub OAuth consent screen.
-    - Use environment variables for `GITHUB_CLIENT_ID` and `SECRET`.
-
-    - Use your GitHub OAuth App credentials.
-
-#### ✅ Exercise 8: GitHub Callback & User Creation
-- Goal: Handle GitHub OAuth callback.
-- Tasks:
-    - Exchange code for access_token.
-    - Fetch user profile and verified email.
-    - Create new user or link to an existing one.
-    - Add GitHub fields to the User model: `github_id`, `avatar_url`, `auth_provider`.
-
-    - Log the user in automatically with a JWT.
-
-#### ✅ Exercise 9: Redirect with Token
-- Goal: Issue JWT and redirect to frontend.
-- Tasks:
-    - On successful OAuth, create a JWT.
-    - Redirect to frontend with ?token=... in the URL.
-    - Allow frontend to decode and store the token.
-    
-    - Verify the decoded token in the frontend.
-
-
 
 ## Hints
 1. **.env file:**
@@ -172,15 +101,16 @@ You’ll use these values when implementing OAuth in your app.
     ```
     cp .env.example .env
     ```
-    Set the `DB_USER` and `DB_PASS` environment variables in the `.env` file to your PostgreSQL credentials.
-    Set the `CLIENT_ID` and `CLIENT_SECRET` for OAuth2 authentication.
+    Set the `DB_USER`, `DB_PASS`, `DB_HOST`, `DB_PORT`, and `DB_NAME` environment variables in the `.env` file to your PostgreSQL credentials.
+
     ```
     DB_USER=your_db_user
     DB_PASS=your_db_password
-    CLIENT_ID=your_client_id
-    CLIENT_SECRET=your_client_secret
+    DB_HOST=localhost
+    DB_PORT=5432
+    DB_NAME=fastapi_week6
     ```
-1. **Create a simple FastAPI app with the following structure:**
+2. **Create a simple FastAPI app with the following structure:**
 
     ```
     module6_security/
@@ -192,9 +122,9 @@ You’ll use these values when implementing OAuth in your app.
     │   ├── user.py
     └── routers/
         ├── users.py
-        |── auth.py
+        
     ```
-2. **Read the environment variables from `config.py`):**
+3. **Read the environment variables in `config.py`:**
 
     ```python
     import os
@@ -216,17 +146,39 @@ You’ll use these values when implementing OAuth in your app.
     ACCESS_TOKEN_EXPIRE_MINUTES = os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 30) 
     ACCESS_TOKEN_EXPIRE_MINUTES = int(ACCESS_TOKEN_EXPIRE_MINUTES) 
 
-    # OAuth Configuration
-    GITHUB_CLIENT_ID = os.getenv("GITHUB_CLIENT_ID")
-    GITHUB_CLIENT_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
-    GITHUB_REDIRECT_URI = "http://localhost:8000/auth/github/callback"
-
-    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")
-    JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
-    FRONTEND_REDIRECT_URL = "http://localhost:5173/oauth/callback"
     ```
- 
-3. **Create the database connection (`database.py`):**
+ 4. **Create Database model for users (`models/user.py`):**
+    ```python
+    from sqlalchemy import Column, Integer, String
+    from sqlalchemy.orm  import declarative_base
+    from database import Base
+    from pydantic import BaseModel
+
+
+    class User(Base):
+        __tablename__ = "users"
+
+        id = Column(Integer, primary_key=True, index=True)
+        username = Column(String, unique=True, index=True)
+        fullname = Column(String)
+        email = Column(String, unique=True, index=True)
+        hashed_password = Column(String)
+    ```
+5. **Create Pydantic models for user registration (`models/user.py`):**
+    ```python
+    class UserRequest(BaseModel):
+        username: str
+        fullname: str
+        email: str
+        password: str
+
+    class UserResponse(BaseModel):
+        username: str
+        email: str 
+    ```
+
+
+6. **Create the database connection (`database.py`):**
     ```python
     import os
     from config import DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT
@@ -256,7 +208,7 @@ You’ll use these values when implementing OAuth in your app.
             db.close()
     ```
 
-4. **Create utility functions (`utils.py`):**
+7. **Create utility functions (`utils.py`):**
     ```python
     import os
     from config import JWT_SECRET_KEY, JWT_ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
@@ -287,37 +239,8 @@ You’ll use these values when implementing OAuth in your app.
             return None    
     ```
 
-5. **Create Database model for users (`models/user.py`):**
-    ```python
-    from sqlalchemy import Column, Integer, String
-    from sqlalchemy.orm  import declarative_base
-    from database import Base
-    from pydantic import BaseModel
 
-
-    class User(Base):
-        __tablename__ = "users"
-
-        id = Column(Integer, primary_key=True, index=True)
-        username = Column(String, unique=True, index=True)
-        fullname = Column(String)
-        email = Column(String, unique=True, index=True)
-        hashed_password = Column(String)
-    ```
-6. **Create Pydantic models for user registration (`models/user.py`):**
-    ```python
-    class UserRequest(BaseModel):
-        username: str
-        fullname: str
-        email: str
-        password: str
-
-    class UserResponse(BaseModel):
-        username: str
-        email: str 
-    ```
-
-7. **Create route for user registration (`routers/users.py`):**
+8. **Create route for user registration (`routers/users.py`):**
 
     ```python
     from fastapi import APIRouter, HTTPException
@@ -353,7 +276,7 @@ You’ll use these values when implementing OAuth in your app.
         return response
     ```
 
-8. **Create the main FastAPI app (`main.py`):**
+9. **Create the main FastAPI app (`main.py`):**
     ```python
         from fastapi import FastAPI
         from routers import users
@@ -383,7 +306,7 @@ You’ll use these values when implementing OAuth in your app.
     ```
 
 
-8. **Run the FastAPI app:**
+10. **Run the FastAPI app:**
     ```bash
     uvicorn main:app --reload
     ```

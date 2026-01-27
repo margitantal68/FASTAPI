@@ -17,7 +17,8 @@ This repository contains training material for a FASTAPI tutorial. Each module i
 | 03 | Intermediate FastAPI | Request and response models. Error handling. Modular architecture and routers. Advanced logging.| [Slides](docs/module03_intermediate_fastapi.md) | [Exercises](./module03_request_response/README.md)|
 | 04 | Database Integration | SQLAlchemy and ORM. Models and schemas. CRUD operations. Alembic for DB migrations. | [Slides](docs/module04_database_integration.md) | [Exercises](./module04_databases/README.md)|
 | 05 | Dependency Injection | FastAPI dependency injection system. Reusable dependencies (DB session, auth). | [Slides](docs/module05_dependency_injection.md) | [Exercises](./module05_dependency_injection/README.md)|
-| 06 | Security | Authentication and authorization. Password hashing. JWT tokens. OAuth2 with GitHub. | [Slides](docs/module06_security.md) | [Exercises](./module06_security/README.md)|
+| 06 | Security | Authentication and authorization. Password hashing. JWT tokens.  | [Slides](docs/module06_security.md) | [Exercises](./module06_security/README.md)|
+| 06 | Security-OAuth2 | OAuth2 with GitHub. | [Slides](docs/module06_security_oauth2.md) | [Exercises](./module06_security_oauth2/README.md)|
 | 07 | Advanced API Design | API versioning. Pagination, filtering, and sorting. Rate limiting. Background tasks. Caching. | [Slides](docs/module07_advanced_api_design.md) | [Exercises](./module07_advanced_api/README.md)|
 | 08 | Testing APIs | Why testing matters. Pytest basics. Unit and integration tests. | [Slides](docs/module08_testing_apis.md) | [Exercises](./module08_testing_apis/README.md)|
 | 09 | Asynchronous Programming | Understanding async and await. Async database interactions. Building async endpoints. | [Slides](docs/module09_asynchronous_programming.md) | [Exercises](./module09_asynchronous_programming/README.md)|

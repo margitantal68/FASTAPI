@@ -6,7 +6,7 @@ app = FastAPI()
 # 0. BASIC example
 def reverse_string(s: str) -> str:
     return s[::-1]
-
+    
 # 1. TEST example
 @app.get("/")
 def read_root():
