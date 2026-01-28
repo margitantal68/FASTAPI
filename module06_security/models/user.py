@@ -13,13 +13,6 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String, nullable=True)
 
-    # New fields for GitHub authentication
-    github_id = Column(String, unique=True, index=True, nullable=True)
-    avatar_url = Column(String, nullable=True)
-    auth_provider = Column(String, default="local")  # e.g., 'local' or 'github'
-    
-    def __repr__(self):
-        return f"<User(username={self.username}, email={self.email}, auth_provider={self.auth_provider})>"
 
 class UserResponse(BaseModel):
     username: str
