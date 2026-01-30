@@ -12,6 +12,7 @@ paginate: true
 - What is OAuth2?
 - OAuth2 Roles
 - OAuth2 Flow with GitHub
+- CORS configuration
 ---
 ## Create a frontend React app to test the API
 - The React app will have a simple UI for 
@@ -115,6 +116,30 @@ create or match a GitHub-authenticated user in your DB.
 - Handle the Redirect (JWT Token)
 Create a page like `/oauth/callback` to extract the `JWT token` from the URL and store it
 ---
+## What is CORS?
+- **CORS** (**C**ross-**O**rigin **R**esource **S**haring) is a security feature implemented by **browsers** to restrict web pages from making requests to a different domain than the one that served the web page.
+- When your **frontend and backend** are hosted on **different domains or ports**, you need to **configure CORS** on your **backend** to allow requests from your frontend domain.
+
+---
+## CORS Configuration in FastAPI
+- In FastAPI, you can use the `CORSMiddleware` to set up CORS
+```python
+from fastapi.middleware.cors import CORSMiddleware  
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://your-frontend.com"],  # Frontend URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+---
+## CORS Example explanation
+- `allow_origins`: Specifies which origins are allowed to make requests. Set this to your frontend URL.
+- `allow_credentials`: Allows cookies and authentication headers to be included in requests.
+- `allow_methods`: Specifies which HTTP methods are allowed (e.g., GET, POST).
+- `allow_headers`: Specifies which headers can be included in requests.
+---
 ## Homework
 
 [Link to homework](../module06_security_oauth2/README.md)
@@ -126,5 +151,6 @@ Section: **Practical exercises**
 - What is OAuth2?
 - OAuth2 Roles
 - OAuth2 Flow with GitHub
+- CORS configuration
 
 
